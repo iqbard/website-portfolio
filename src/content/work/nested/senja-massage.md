@@ -1,14 +1,13 @@
 ---
 title: Senja Massage and Reflexogy
 publishDate: 2020-03-02 00:00:00
-img: ../assets/senjamassage-website.webp
-img_alt: Iridescent ripples of a bright blue and pink liquid
+img: /assets/senjamassage-website.webp
+img_alt: senja massage
 description: |
-  We designed a whodunnit-style game to introduce Markdown formatting. Suspense — suspicion — syntax!
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. 
 tags:
-  - Design
-  - Dev
-  - User Testing
+  - UI UX Design
+  - Wordpress Development
 ---
 
 ## Level-two heading
