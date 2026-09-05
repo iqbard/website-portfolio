@@ -42,11 +42,20 @@ export default async function handler(request, response) {
       token: token.access_token,
       provider: 'github',
     })}`;
+    const origin = new URL(state.redirectUri).origin;
 
     response.setHeader('Content-Type', 'text/html; charset=utf-8');
     return response.end(`<!doctype html><html><body><script>
-      window.opener.postMessage(${JSON.stringify(message)}, '*');
-      window.close();
+      const opener = window.opener;
+      const origin = ${JSON.stringify(origin)};
+      const successMessage = ${JSON.stringify(message)};
+      window.addEventListener('message', function(event) {
+        if (event.origin === origin && event.data === 'authorizing:github') {
+          opener.postMessage(successMessage, origin);
+          window.close();
+        }
+      });
+      opener.postMessage('authorizing:github', origin);
     </script></body></html>`);
   } catch (error) {
     return response.status(400).send(error.message);
