@@ -3,19 +3,42 @@ title: Shift Academy
 publishDate: 2019-10-02 00:00:00
 img: /assets/shiftacademy-website.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
-description: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. 
+description: >
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
+  commodo venenatis. 
 tags:
   - UI UX Design
   - Wordpress Development
 ---
+Company Name: Shift Academy
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+Industry: EdTech / Online Education
 
-Integer vitae nibh elit. Suspendisse eget urna eu neque bibendum pharetra. Sed interdum lectus sem, in pulvinar magna dignissim vel. Quisque maximus at urna nec laoreet. Suspendisse potenti. Vestibulum rhoncus sem ut mi pellentesque, in vestibulum erat blandit. Aliquam sodales dui ac maximus consectetur. Duis quis est vehicula, imperdiet nisl nec, fermentum erat. Duis tortor diam, pharetra eu euismod in, vehicula non eros. Curabitur facilisis dui at erat ultrices gravida. In at nunc ultricies, pulvinar mi vel, sagittis mauris. Praesent pharetra posuere purus ac imperdiet. Nulla facilisi.
+Services: LMS Integration, Web Development, UI/UX Design
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+Website: https://shiftacademy.id
 
-Mauris sed eros in ex maximus volutpat. Suspendisse potenti. Donec lacinia justo consectetur sagittis tempor. Proin ullamcorper nisi vitae auctor rhoncus. Sed tristique aliquam augue. Pellentesque vitae fringilla ligula. Nulla arcu elit, efficitur eu nunc malesuada, eleifend tincidunt orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer mattis orci in bibendum ultricies. Quisque a dui erat. Phasellus et vulputate ipsum. Proin metus ex, lobortis nec ornare eget, bibendum ut sapien. Aliquam in dolor lobortis, aliquam tellus a, congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+### Description
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+Shift Academy is a digital learning institution dedicated to equipping students with modern, in-demand tech skills. They partnered with us to build a centralized, interactive Learning Management System (LMS). By unifying course distribution, user registration, and progress tracking into one sleek platform, we eliminated administrative friction and provided an intuitive learning environment that easily scales with their rapidly growing student base.
+
+### Request
+
+As their popularity grew, Shift Academy began outgrowing its initial setup. They were juggling multiple disjointed third-party tools for payment processing, video hosting, and assignment tracking.
+
+This fragmented system caused onboarding confusion for new students and created a massive, manual administrative burden for the staff. They needed a unified, automated e-learning platform that looked professional, felt modern, and could handle everything from initial checkout to final course certification without requiring constant human intervention.
+
+### Action
+
+We engineered a comprehensive "digital campus" tailored specifically to a tech-savvy audience. Our execution included:
+
+* Custom LMS Integration: Built a robust, centralized Learning Management System to handle seamless video curriculum delivery, interactive quizzes, and automated grading in one place.
+* Automated Enrollment Flow: Integrated secure, automated payment gateways that instantly unlock course access and generate credentials upon purchase, entirely eliminating manual verification delays.
+* Personalized Student Dashboards: Designed an intuitive, gamified user dashboard where students can easily track their module progress, access downloadable materials, and pick up right where they left off.
+* Tech-Forward UI/UX: Applied a sleek, modern visual aesthetic featuring dark-mode-inspired layouts and vibrant accents to perfectly resonate with their target demographic of aspiring developers and tech professionals.
+
+### Result
+
+The launch of the new platform radically transformed Shift Academy’s operational capabilities. Within the first semester post-launch, automated course enrollments surged by 60%, driven largely by the frictionless checkout and instant onboarding process.
+
+Furthermore, the centralized LMS reduced the administrative team's manual workload by over 40 hours a week. Instead of managing links and verifying payments, the Shift Academy team can now focus entirely on what they do best: improving curriculum quality and ensuring student success.
