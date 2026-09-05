@@ -14,7 +14,7 @@ Steps to deploy on Vercel and enable CMS authentication:
 Notes and troubleshooting
 - Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/config.yml`.
 - If media uploads fail, verify that media_folder/public_folder in public/config.yml points to a writable location in the published site (we use public/assets/uploads).
-- For local development, use the deployed OAuth server when testing CMS authentication.
+- For local development, run `npx decap-server` in a second terminal, then open `/admin/`. The local backend edits files in this repository without requiring GitHub OAuth.
 
 Files added/updated by the integration
 - public/admin-cms.html (Decap CMS admin UI)

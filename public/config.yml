@@ -8,6 +8,9 @@ backend:
     update: "Update {{collection}} "
     delete: "Delete {{collection}} "
 
+local_backend:
+  url: http://localhost:8081/api/v1
+
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
 
