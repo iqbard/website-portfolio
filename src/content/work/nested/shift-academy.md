@@ -4,41 +4,42 @@ publishDate: 2019-10-02 00:00:00
 img: /assets/shiftacademy-website.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
-  commodo venenatis. 
+  Squadgames is a fast-growing digital community and tournament organizer built
+  by and for passionate gamers. They needed a central digital hub that could
+  match the high-octane energy of their brand while easily withstanding massive
+  surges in web traffic during live esports events. By combining bold,
+  gamer-centric UI/UX design with scalable, lightning-fast web infrastructure,
+  we delivered a platform that keeps the community engaged without dropping a
+  single frame.
 tags:
   - UI UX Design
   - Wordpress Development
 ---
-Company Name: Shift Academy
+Company Name: Squadgames
 
-Industry: EdTech / Online Education
+Industry: Gaming & Esports
 
-Services: LMS Integration, Web Development, UI/UX Design
+Services: Web Design, Performance Optimization
 
-Website: https://shiftacademy.id
-
-### Description
-
-Shift Academy is a digital learning institution dedicated to equipping students with modern, in-demand tech skills. They partnered with us to build a centralized, interactive Learning Management System (LMS). By unifying course distribution, user registration, and progress tracking into one sleek platform, we eliminated administrative friction and provided an intuitive learning environment that easily scales with their rapidly growing student base.
+Website: *https://squadgames.id*
 
 ### Request
 
-As their popularity grew, Shift Academy began outgrowing its initial setup. They were juggling multiple disjointed third-party tools for payment processing, video hosting, and assignment tracking.
+As Squadgames expanded their tournament offerings, their original website began to crack under the pressure. During live events and registration windows, sudden influxes of users caused severe page lag and occasional crashes, leading to frustrated players and lost sign-ups.
 
-This fragmented system caused onboarding confusion for new students and created a massive, manual administrative burden for the staff. They needed a unified, automated e-learning platform that looked professional, felt modern, and could handle everything from initial checkout to final course certification without requiring constant human intervention.
+Additionally, the site's visual design felt generic and failed to capture the vibrant, competitive spirit of the gaming community. They needed a complete overhaul: a website that looked aggressive and modern, functioned flawlessly under heavy server loads, and made tournament registration instantly accessible.
 
 ### Action
 
-We engineered a comprehensive "digital campus" tailored specifically to a tech-savvy audience. Our execution included:
+We designed and engineered a robust, high-performance community hub tailored for the modern gamer. Our approach included:
 
-* Custom LMS Integration: Built a robust, centralized Learning Management System to handle seamless video curriculum delivery, interactive quizzes, and automated grading in one place.
-* Automated Enrollment Flow: Integrated secure, automated payment gateways that instantly unlock course access and generate credentials upon purchase, entirely eliminating manual verification delays.
-* Personalized Student Dashboards: Designed an intuitive, gamified user dashboard where students can easily track their module progress, access downloadable materials, and pick up right where they left off.
-* Tech-Forward UI/UX: Applied a sleek, modern visual aesthetic featuring dark-mode-inspired layouts and vibrant accents to perfectly resonate with their target demographic of aspiring developers and tech professionals.
+* Bold, Gamer-Centric Design: Overhauled the visual identity using a sleek dark mode theme, neon accents, and dynamic micro-animations to create an immersive, esports-ready aesthetic.
+* Infrastructure Optimization: Rebuilt the site architecture utilizing modern, lightweight frameworks and optimized asset delivery (CDN) to ensure the platform could effortlessly scale during sudden high-traffic tournament days.
+* Streamlined Tournament Hub: Created a dedicated, easy-to-navigate tournament dashboard featuring live countdowns, automated bracket updates, and one-click team registration.
+* Community Integration: Embedded live streams, leaderboards, and social feeds directly into the homepage to keep users engaged on the platform longer.
 
 ### Result
 
-The launch of the new platform radically transformed Shift Academy’s operational capabilities. Within the first semester post-launch, automated course enrollments surged by 60%, driven largely by the frictionless checkout and instant onboarding process.
+The new Squadgames platform proved to be a massive upgrade in both aesthetics and raw performance. During their first major tournament post-launch, the website successfully handled a 10x surge in concurrent users with zero downtime or lag.
 
-Furthermore, the centralized LMS reduced the administrative team's manual workload by over 40 hours a week. Instead of managing links and verifying payments, the Shift Academy team can now focus entirely on what they do best: improving curriculum quality and ensuring student success.
+The frictionless registration process led to a 40% increase in team sign-ups compared to previous seasons. With a platform that finally matches their ambition, Squadgames has solidified its reputation as a premier destination for competitive gaming.
