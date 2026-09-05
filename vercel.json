@@ -1,5 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin-cms.html" },
+    { "source": "/admin/", "destination": "/admin-cms.html" }
+  ]
 }
