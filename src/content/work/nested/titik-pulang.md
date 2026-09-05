@@ -3,9 +3,14 @@ title: Titik Pulang Website
 publishDate: 2020-03-04 00:00:00
 img: /assets/titikpulang-website.webp
 img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
-description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
-  commodo venenatis. 
+description: Titik Pulang is a community-driven space dedicated to fostering
+  mindfulness, connection, and a sense of belonging. They approached us to
+  translate the physical warmth of their brand into a welcoming digital
+  experience. By combining empathetic UI/UX design with a streamlined, custom
+  WordPress build, we transformed their outdated site into a serene, highly
+  functional digital home. The new platform not only deepens community
+  engagement but also empowers their internal team with an effortless content
+  management system.
 tags:
   - UI UX Design
   - Wordpress Development
