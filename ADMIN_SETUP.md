@@ -17,7 +17,7 @@ Notes and troubleshooting
 - For local development, use the deployed OAuth server when testing CMS authentication.
 
 Files added/updated by the integration
-- public/admin/index.html (Decap CMS admin UI)
+- src/pages/admin.astro (Decap CMS admin UI)
 - public/admin/config.yml (configured to use the GitHub backend)
 - vercel.json (Vercel build configuration)
 - ADMIN_SETUP.md (this document)
