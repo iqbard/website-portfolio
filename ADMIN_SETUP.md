@@ -12,13 +12,13 @@ Steps to deploy on Vercel and enable CMS authentication:
 4. Editors can then visit `https://liburandirumah.vercel.app/admin/` and sign in with GitHub.
 
 Notes and troubleshooting
-- Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/config.yml`.
-- If media uploads fail, verify that media_folder/public_folder in public/config.yml points to a writable location in the published site (we use public/assets/uploads).
+- Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/admin/config.yml`.
+- If media uploads fail, verify that media_folder/public_folder in public/admin/config.yml points to a writable location in the published site (we use public/assets/uploads).
 - For local development, run `npx decap-server` in a second terminal, then open `/admin/`. The local backend edits files in this repository without requiring GitHub OAuth.
 
 Files added/updated by the integration
 - public/admin-cms.html (Decap CMS admin UI)
-- public/config.yml (configured to use the GitHub backend)
+- public/admin/config.yml (configured to use the GitHub backend)
 - vercel.json (Vercel build configuration)
 - ADMIN_SETUP.md (this document)
 
