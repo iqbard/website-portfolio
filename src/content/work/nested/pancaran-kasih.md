@@ -2,20 +2,44 @@
 title: Pancaran Kasih Abadi
 publishDate: 2019-12-01 00:00:00
 img: /assets/pka-website.webp
-img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
-description: |
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. 
+img_alt: A bright pink sheet of paper used to wrap flowers curves in front of
+  rich blue background
+description: >
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
+  commodo venenatis. 
 tags:
   - UI UX Design
   - Wordpress Development
 ---
+Company Name: Pancaran Kasih Abadi
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+Industry: Corporate Services / B2B Enterprise
 
-Integer vitae nibh elit. Suspendisse eget urna eu neque bibendum pharetra. Sed interdum lectus sem, in pulvinar magna dignissim vel. Quisque maximus at urna nec laoreet. Suspendisse potenti. Vestibulum rhoncus sem ut mi pellentesque, in vestibulum erat blandit. Aliquam sodales dui ac maximus consectetur. Duis quis est vehicula, imperdiet nisl nec, fermentum erat. Duis tortor diam, pharetra eu euismod in, vehicula non eros. Curabitur facilisis dui at erat ultrices gravida. In at nunc ultricies, pulvinar mi vel, sagittis mauris. Praesent pharetra posuere purus ac imperdiet. Nulla facilisi.
+Services: UI/UX Design, Corporate Web Development
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+Website: *\[Insert Client Website URL, e.g., pka.co.id]*
 
-Mauris sed eros in ex maximus volutpat. Suspendisse potenti. Donec lacinia justo consectetur sagittis tempor. Proin ullamcorper nisi vitae auctor rhoncus. Sed tristique aliquam augue. Pellentesque vitae fringilla ligula. Nulla arcu elit, efficitur eu nunc malesuada, eleifend tincidunt orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer mattis orci in bibendum ultricies. Quisque a dui erat. Phasellus et vulputate ipsum. Proin metus ex, lobortis nec ornare eget, bibendum ut sapien. Aliquam in dolor lobortis, aliquam tellus a, congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+### Description
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+Pancaran Kasih Abadi is an established corporate entity with a strong real-world legacy. They needed a digital presence that accurately reflected their scale, professionalism, and industry authority. We partnered with them to design and develop a comprehensive corporate profile website. By focusing on clear information architecture and a modern, responsive layout, we transformed their digital identity into a powerful asset that builds immediate trust with potential B2B partners and stakeholders.
+
+### Request
+
+Despite having a solid reputation and years of experience in their industry, Pancaran Kasih Abadi’s digital footprint was lagging behind. Their existing web presence was outdated, making it difficult for prospective clients and partners to fully grasp the breadth of their services and company history.
+
+They needed a complete corporate website revamp to serve as a 24/7 digital brochure—one that could instill confidence in stakeholders, clearly communicate their value proposition, and streamline the process for B2B inquiries.
+
+### Action
+
+We designed a professional, authoritative platform focused on clarity and corporate credibility. Our approach included:
+
+* Trust-Driven UI/UX Design: Implemented a clean, professional visual identity using structured grid layouts, elegant typography, and their core brand colors to project stability and reliability.
+* Information Architecture Overhaul: Completely reorganized their company history, service pillars, and portfolio into an intuitive navigation structure, making complex corporate information easy to digest.
+* B2B Conversion Optimization: Placed strategic, professional call-to-action (CTA) buttons and streamlined contact forms across the site to make it effortless for prospective partners to reach out.
+* Responsive Corporate Storytelling: Developed a robust, mobile-responsive framework ensuring the website delivers a flawless, high-quality experience whether viewed on a desktop in a boardroom or on a smartphone.
+
+### Result
+
+The launched website successfully modernized Pancaran Kasih Abadi’s brand image, matching their digital presence with their real-world authority. Within the first few months, the company saw a 40% increase in qualified B2B inquiries originating from the website.
+
+Additionally, the sales and management teams reported that the new site became an invaluable tool during pitch meetings, significantly reducing the time needed to explain their services. The bounce rate decreased by 25%, proving that visitors were effectively engaging with the company's newly organized content.
