@@ -3,6 +3,8 @@ backend:
   name: github
   repo: iqbard/website-portfolio
   branch: main
+  base_url: /api
+  auth_endpoint: auth
   commit_messages:
     create: "Create {{collection}} "
     update: "Update {{collection}} "

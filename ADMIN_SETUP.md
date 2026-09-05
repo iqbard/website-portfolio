@@ -7,8 +7,8 @@ Summary
 Steps to deploy on Vercel and enable CMS authentication:
 
 1. Import this repository into Vercel and use `npm run build` with `dist` as the output directory.
-2. Create a GitHub OAuth application for the deployed `/admin/` URL.
-3. Configure a Decap-compatible OAuth server and add its `base_url` to `public/config.yml`.
+2. Create a GitHub OAuth application with callback URL `https://your-domain.com/api/callback`.
+3. Add `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and `OAUTH_STATE_SECRET` as Vercel environment variables.
 4. Editors can then visit `/admin/` on the deployed site and sign in with GitHub.
 
 Notes and troubleshooting
