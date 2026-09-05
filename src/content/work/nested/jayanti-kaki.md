@@ -3,19 +3,40 @@ title: Jayanti Kaki-kaki
 publishDate: 2019-10-02 00:00:00
 img: /assets/pka-website.webp
 img_alt: pancaran kasih abadi website
-description: |
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. 
+description: >
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
+  commodo venenatis. 
 tags:
   - UI UX Design
   - Wordpress Development
 ---
+Company Name: Jayanti Kaki-kaki
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+Industry: Automotive / Auto Repair
 
-Integer vitae nibh elit. Suspendisse eget urna eu neque bibendum pharetra. Sed interdum lectus sem, in pulvinar magna dignissim vel. Quisque maximus at urna nec laoreet. Suspendisse potenti. Vestibulum rhoncus sem ut mi pellentesque, in vestibulum erat blandit. Aliquam sodales dui ac maximus consectetur. Duis quis est vehicula, imperdiet nisl nec, fermentum erat. Duis tortor diam, pharetra eu euismod in, vehicula non eros. Curabitur facilisis dui at erat ultrices gravida. In at nunc ultricies, pulvinar mi vel, sagittis mauris. Praesent pharetra posuere purus ac imperdiet. Nulla facilisi.
+Services: Web Development, UI/UX Design, Local SEO Optimization
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+Website:
 
-Mauris sed eros in ex maximus volutpat. Suspendisse potenti. Donec lacinia justo consectetur sagittis tempor. Proin ullamcorper nisi vitae auctor rhoncus. Sed tristique aliquam augue. Pellentesque vitae fringilla ligula. Nulla arcu elit, efficitur eu nunc malesuada, eleifend tincidunt orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer mattis orci in bibendum ultricies. Quisque a dui erat. Phasellus et vulputate ipsum. Proin metus ex, lobortis nec ornare eget, bibendum ut sapien. Aliquam in dolor lobortis, aliquam tellus a, congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+### Description
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+Jayanti Kaki-kaki is a specialized automotive repair shop highly regarded for its expertise in vehicle undercarriage and suspension systems. They partnered with us to build a digital presence that could capture drivers experiencing car troubles in their local area. By creating a fast-loading, locally optimized website integrated with a direct-to-WhatsApp booking flow, we bridged the gap between a driver's immediate distress and the shop's mechanical solutions, seamlessly turning website visitors into scheduled customers.
+
+### Request
+
+Despite their excellent physical reputation, Jayanti Kaki-kaki was missing out on a massive digital audience: drivers actively searching Google for immediate suspension or undercarriage repairs.
+
+They lacked a dedicated website, relying solely on word-of-mouth and basic social media. They needed a platform that would rank well in local search results, educate customers on common car symptoms (like steering wheel vibrations or strange noises), and most importantly, make it incredibly easy for a stressed driver to book an inspection from their mobile phone.
+
+### Action
+
+We built a high-converting, mobile-first service website designed to capture immediate intent. Our execution included:
+
+* Direct-to-WhatsApp Integration: Replaced traditional, slow contact forms with floating, one-click WhatsApp action buttons, allowing customers to instantly chat with the mechanics and send videos or photos of their car issues.
+* Symptom-Based Copywriting: Designed the service pages around customer pain points (e.g., "Is your steering wheel shaking?") rather than just technical jargon, helping everyday drivers easily identify what service they need.
+* Local SEO Optimization: Structured the website’s content and metadata to target specific location-based automotive queries, ensuring the shop appeared exactly when local drivers needed them most.
+* High-Speed Mobile Performance: Optimized the site for incredibly fast loading times, knowing that users would likely be accessing the site via mobile data while dealing with car trouble on the road.
+
+### Result
+
+The launch of the website successfully transformed Jayanti Kaki-kaki from a traditional garage into a highly accessible, digitally-activated business. Within the first few months, the shop experienced a 50% increase in scheduled appointments, with the vast majority of new leads coming directly through the automated WhatsApp flow.
