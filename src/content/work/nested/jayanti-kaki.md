@@ -3,9 +3,14 @@ title: Jayanti Kaki-kaki
 publishDate: 2019-10-02 00:00:00
 img: /assets/pka-website.webp
 img_alt: pancaran kasih abadi website
-description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
-  commodo venenatis. 
+description: Jayanti Kaki-kaki is a specialized automotive repair shop highly
+  regarded for its expertise in vehicle undercarriage and suspension systems.
+  They partnered with us to build a digital presence that could capture drivers
+  experiencing car troubles in their local area. By creating a fast-loading,
+  locally optimized website integrated with a direct-to-WhatsApp booking flow,
+  we bridged the gap between a driver's immediate distress and the shop's
+  mechanical solutions, seamlessly turning website visitors into scheduled
+  customers.
 tags:
   - UI UX Design
   - Wordpress Development
@@ -17,10 +22,6 @@ Industry: Automotive / Auto Repair
 Services: Web Development, UI/UX Design, Local SEO Optimization
 
 Website:
-
-### Description
-
-Jayanti Kaki-kaki is a specialized automotive repair shop highly regarded for its expertise in vehicle undercarriage and suspension systems. They partnered with us to build a digital presence that could capture drivers experiencing car troubles in their local area. By creating a fast-loading, locally optimized website integrated with a direct-to-WhatsApp booking flow, we bridged the gap between a driver's immediate distress and the shop's mechanical solutions, seamlessly turning website visitors into scheduled customers.
 
 ### Request
 
