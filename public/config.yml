@@ -11,7 +11,6 @@ backend:
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
 
-# Collections map to the content folders used by Astro Content
 collections:
   - name: "work"
     label: "Work"

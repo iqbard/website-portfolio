@@ -8,17 +8,17 @@ Steps to deploy on Vercel and enable CMS authentication:
 
 1. Import this repository into Vercel and use `npm run build` with `dist` as the output directory.
 2. Create a GitHub OAuth application for the deployed `/admin/` URL.
-3. Configure a Decap-compatible OAuth server and add its `base_url` to `public/admin/config.yml`.
+3. Configure a Decap-compatible OAuth server and add its `base_url` to `public/config.yml`.
 4. Editors can then visit `/admin/` on the deployed site and sign in with GitHub.
 
 Notes and troubleshooting
-- Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/admin/config.yml`.
-- If media uploads fail, verify that media_folder/public_folder in public/admin/config.yml points to a writable location in the published site (we use public/assets/uploads).
+- Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/config.yml`.
+- If media uploads fail, verify that media_folder/public_folder in public/config.yml points to a writable location in the published site (we use public/assets/uploads).
 - For local development, use the deployed OAuth server when testing CMS authentication.
 
 Files added/updated by the integration
-- src/pages/admin.astro (Decap CMS admin UI)
-- public/admin/config.yml (configured to use the GitHub backend)
+- public/admin-cms.html (Decap CMS admin UI)
+- public/config.yml (configured to use the GitHub backend)
 - vercel.json (Vercel build configuration)
 - ADMIN_SETUP.md (this document)
 
