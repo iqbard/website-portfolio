@@ -1,27 +1,25 @@
-Netlify Identity + Git Gateway setup for Decap CMS
+Vercel + GitHub OAuth setup for Decap CMS
 
 Summary
-- This site uses Decap CMS (Netlify CMS) at /admin/ and stores content under src/content/*.
-- The CMS is configured to use Git Gateway (Netlify Identity + Git Gateway) so editors can sign in and make commits without personal access tokens.
+- This site uses Decap CMS at /admin/ and stores content under src/content/*.
+- The CMS is configured to use the GitHub backend for iqbard/website-portfolio.
 
-Steps to enable on Netlify (site must be connected to this Git repo):
+Steps to deploy on Vercel and enable CMS authentication:
 
-1. Deploy the site to Netlify (link this repository in Netlify and ensure the site builds).
-2. In the Netlify dashboard for the site, go to "Identity" and click "Enable Identity".
-3. In Identity > Services, enable "Git Gateway". This will allow Decap CMS to use Netlify Identity for authentication and author commits via Git Gateway.
-4. Optionally enable invitation-based signups or open signups depending on your team.
-5. Add users/invite collaborators via Identity > Invite users. Invited users will receive an email to create an account.
-6. In the CMS, editors should visit /admin/ on the deployed site and click "Login with Netlify"; after logging in they can edit collections.
+1. Import this repository into Vercel and use `npm run build` with `dist` as the output directory.
+2. Create a GitHub OAuth application for the deployed `/admin/` URL.
+3. Configure a Decap-compatible OAuth server and add its `base_url` to `public/admin/config.yml`.
+4. Editors can then visit `/admin/` on the deployed site and sign in with GitHub.
 
 Notes and troubleshooting
-- Ensure Git Gateway has permissions to write to the default branch (main). If using a different branch, update public/admin/config.yml.
+- Ensure the GitHub OAuth application can write to the default branch (`main`). If using a different branch, update `public/admin/config.yml`.
 - If media uploads fail, verify that media_folder/public_folder in public/admin/config.yml points to a writable location in the published site (we use public/assets/uploads).
-- For local development, Decap CMS's Git Gateway won't work unless you also run a local identity/gateway or test against the deployed Netlify site. For local testing, consider using the GitHub backend in config.yml or use the preview mode.
+- For local development, use the deployed OAuth server when testing CMS authentication.
 
 Files added/updated by the integration
-- public/admin/index.html (Decap CMS admin UI with Netlify Identity widget)
-- public/admin/config.yml (configured to use git-gateway backend)
-- netlify.toml (redirects to serve /admin/* from admin/index.html)
+- public/admin/index.html (Decap CMS admin UI)
+- public/admin/config.yml (configured to use the GitHub backend)
+- vercel.json (Vercel build configuration)
 - ADMIN_SETUP.md (this document)
 
 If you'd like, the next steps are:

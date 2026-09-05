@@ -1,15 +1,12 @@
 # Decap CMS config for the Astro portfolio site
-# Backend: using GitHub as the default backend. Replace `repo` and `branch` as needed.
 backend:
-  name: git-gateway
+  name: github
+  repo: iqbard/website-portfolio
   branch: main
-  squash_merges: true
   commit_messages:
     create: "Create {{collection}} "
     update: "Update {{collection}} "
     delete: "Delete {{collection}} "
-
-  # Note: Netlify Identity + Git Gateway must be enabled in the Netlify dashboard for this to work.
 
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"

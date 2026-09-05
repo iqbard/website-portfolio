@@ -9,20 +9,11 @@
     <!-- Decap CMS (formerly Netlify CMS) UMD build from CDN -->
     <script src="https://unpkg.com/@decap-org/decap-cms@^2.0.0/dist/decap-cms.umd.js"></script>
 
-    <!-- Netlify Identity widget (optional) to support login UI -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       // Initialize the CMS and point it to the YAML config in /admin/config.yml
       // The global exposed by the UMD bundle is CMS for backward compatibility.
       window.CMS && window.CMS.init({ config: '/admin/config.yml' });
 
-      // Initialize Netlify Identity widget and handle login flow so editors are redirected back.
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.init();
-        window.netlifyIdentity.on('login', function() {
-          document.location.href = '/admin/';
-        });
-      }
     </script>
   </body>
 </html>
