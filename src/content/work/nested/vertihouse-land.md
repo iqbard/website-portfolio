@@ -3,9 +3,13 @@ title: Vertihouse Land
 publishDate: 2020-03-02 00:00:00
 img: /assets/vertihouse-website.webp
 img_alt: Iridescent ripples of a bright blue and pink liquid
-description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
-  commodo venenatis. 
+description: Vertihouse Land is a forward-thinking real estate developer
+  specializing in modern, high-quality residential properties. They approached
+  us to transform their online presence from a simple informational page into a
+  powerful lead-generation engine. By combining elegant visual storytelling with
+  strategically placed conversion touchpoints, we created a premium property
+  showcase that builds buyer trust and significantly drives up requests for
+  physical property viewings.
 tags:
   - UI UX Design
   - Wordpress Development
@@ -17,10 +21,6 @@ Industry: Real Estate & Property Development
 Services: Web Design, Lead Generation Optimization
 
 Website: https://*vertihouse-land.com*
-
-### Description
-
-Vertihouse Land is a forward-thinking real estate developer specializing in modern, high-quality residential properties. They approached us to transform their online presence from a simple informational page into a powerful lead-generation engine. By combining elegant visual storytelling with strategically placed conversion touchpoints, we created a premium property showcase that builds buyer trust and significantly drives up requests for physical property viewings.
 
 ### Request
 
