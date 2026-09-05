@@ -3,8 +3,8 @@ backend:
   name: github
   repo: iqbard/website-portfolio
   branch: main
-  base_url: /api
-  auth_endpoint: auth
+  base_url: https://liburandirumah.vercel.app
+  auth_endpoint: api/auth
   commit_messages:
     create: "Create {{collection}} "
     update: "Update {{collection}} "
