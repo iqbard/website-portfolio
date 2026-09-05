@@ -5,8 +5,13 @@ img: /assets/pka-website.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of
   rich blue background
 description: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere
-  commodo venenatis. 
+  Pancaran Kasih Abadi is an established corporate entity with a strong
+  real-world legacy. They needed a digital presence that accurately reflected
+  their scale, professionalism, and industry authority. We partnered with them
+  to design and develop a comprehensive corporate profile website. By focusing
+  on clear information architecture and a modern, responsive layout, we
+  transformed their digital identity into a powerful asset that builds immediate
+  trust with potential B2B partners and stakeholders.
 tags:
   - UI UX Design
   - Wordpress Development
@@ -17,11 +22,7 @@ Industry: Corporate Services / B2B Enterprise
 
 Services: UI/UX Design, Corporate Web Development
 
-Website: *\[Insert Client Website URL, e.g., pka.co.id]*
-
-### Description
-
-Pancaran Kasih Abadi is an established corporate entity with a strong real-world legacy. They needed a digital presence that accurately reflected their scale, professionalism, and industry authority. We partnered with them to design and develop a comprehensive corporate profile website. By focusing on clear information architecture and a modern, responsive layout, we transformed their digital identity into a powerful asset that builds immediate trust with potential B2B partners and stakeholders.
+Website: 
 
 ### Request
 
