@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Login | Iqbal Abdurachman" description="Template login screen.">
+	<section class="auth-page"><div class="auth-grid"><div class="auth-form"><a class="auth-logo" href="/">← Back home</a><div class="auth-heading"><p class="eyebrow">Member area</p><h1>Welcome back.</h1><p>Use this screen as the starting point for a future client portal or product login.</p></div><form><label>Email<input type="email" placeholder="you@example.com" /></label><label>Password<input type="password" placeholder="Your password" /></label><button class="button" type="submit">Log in ↗</button></form><p class="auth-switch">Need an account? <a href="/signup/">Create one</a></p></div><div class="auth-art"><span class="art-number">01</span><h2>A calmer way to move digital work forward.</h2><p>Replace this panel with a product promise, client quote, or visual when the purpose of the account area is decided.</p></div></div></section>
+</BaseLayout>
+
+<style>
+	.auth-page { min-height: 75vh; background: var(--surface-soft); }
+	.auth-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 75vh; }
+	.auth-form { display: flex; flex-direction: column; justify-content: center; width: min(100% - 3rem, 28rem); margin-inline: auto; padding: 3rem 0; }
+	.auth-logo { color: var(--blue); font-weight: 700; text-decoration: none; }
+	.auth-heading { margin-top: 5rem; }
+	.auth-heading h1 { margin-top: 0.75rem; }
+	.auth-heading p:last-child { margin-top: 0.8rem; color: var(--muted); }
+	form { display: grid; gap: 1rem; margin-top: 2rem; }
+	label { display: grid; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; }
+	input { border: 1px solid var(--line); border-radius: 0.4rem; padding: 0.85rem; font: inherit; }
+	.button { border: 0; border-radius: 0.45rem; padding: 0.85rem; color: white; background: var(--blue); font: inherit; font-weight: 700; cursor: pointer; }
+	.auth-switch { margin-top: 1.5rem; color: var(--muted); font-size: 0.9rem; }
+	.auth-switch a { color: var(--blue); font-weight: 700; }
+	.auth-art { display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem; color: white; background: var(--blue); }
+	.art-number { font-family: var(--font-heading); font-weight: 800; }
+	.auth-art h2 { max-width: 12ch; margin-top: auto; color: white; }
+	.auth-art p { max-width: 28rem; margin-top: 1rem; color: #dbe5ff; }
+	@media (max-width: 55em) { .auth-grid { grid-template-columns: 1fr; } .auth-art { min-height: 20rem; padding: 2rem; } .auth-art h2 { margin-top: 3rem; } }
+</style>

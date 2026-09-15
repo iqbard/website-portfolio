@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('work')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout title="Projects | Iqbal Abdurachman" description="Selected projects and case studies by Iqbal Abdurachman.">
+	<section class="page-hero"><div class="container narrow"><p class="eyebrow">Projects</p><h1>Work that turns a good idea into a useful experience.</h1><p class="subtitle">A reusable project library for case studies, launches, and collaborations. Add and edit entries through the Work collection in Decap CMS.</p></div></section>
+	<section class="section container"><div class="project-grid">{projects.map((project) => <article class="project-card"><div class="project-meta"><span>{project.data.tags[0] || 'Case study'}</span><time datetime={project.data.publishDate.toISOString()}>{project.data.publishDate.toLocaleDateString('en-US', { year: 'numeric' })}</time></div><h2>{project.data.title}</h2><p>{project.data.description}</p><a href={`/blog/${project.id.split('/').pop()?.replace(/\.md$/, '')}/`}>View project ↗</a></article>)}</div></section>
+</BaseLayout>
+
+<style>
+	.page-hero { padding: 5rem 0 4rem; text-align: center; background: var(--blue-soft); }
+	.narrow { max-width: 46rem; margin-inline: auto; }
+	.page-hero h1 { margin-top: 0.75rem; }
+	.subtitle { margin-top: 1.25rem; color: var(--muted); font-size: 1.1rem; }
+	.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+	.project-card { min-height: 17rem; border: 1px solid var(--line); border-radius: 0.8rem; padding: 1.75rem; background: white; box-shadow: var(--shadow-sm); }
+	.project-meta { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.75rem; }
+	.project-meta span { color: var(--blue); font-weight: 700; }
+	.project-card h2 { margin-top: 3rem; font-size: 1.55rem; }
+	.project-card p { margin-top: 0.7rem; color: var(--muted); }
+	.project-card a { display: inline-block; margin-top: 1.25rem; color: var(--blue); font-weight: 700; text-decoration: none; }
+	@media (max-width: 45em) { .project-grid { grid-template-columns: 1fr; } }
+</style>

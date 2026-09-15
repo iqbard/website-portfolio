@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Sign Up | Iqbal Abdurachman" description="Template sign up screen.">
+	<section class="auth-page"><div class="auth-grid"><div class="auth-form"><a class="auth-logo" href="/">← Back home</a><div class="auth-heading"><p class="eyebrow">Get started</p><h1>Create your account.</h1><p>This placeholder screen keeps the template ready for a future membership, course, or client workspace flow.</p></div><form><label>Name<input type="text" placeholder="Your name" /></label><label>Email<input type="email" placeholder="you@example.com" /></label><label>Password<input type="password" placeholder="Create a password" /></label><button class="button" type="submit">Create account ↗</button></form><p class="auth-switch">Already have an account? <a href="/login/">Log in</a></p></div><div class="auth-art"><span class="art-number">02</span><h2>Build something people can believe in.</h2><p>Replace this panel with onboarding content once the account experience has a defined purpose.</p></div></div></section>
+</BaseLayout>
+
+<style>
+	.auth-page { min-height: 75vh; background: var(--surface-soft); }
+	.auth-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 75vh; }
+	.auth-form { display: flex; flex-direction: column; justify-content: center; width: min(100% - 3rem, 28rem); margin-inline: auto; padding: 3rem 0; }
+	.auth-logo { color: var(--blue); font-weight: 700; text-decoration: none; }
+	.auth-heading { margin-top: 5rem; }
+	.auth-heading h1 { margin-top: 0.75rem; }
+	.auth-heading p:last-child { margin-top: 0.8rem; color: var(--muted); }
+	form { display: grid; gap: 1rem; margin-top: 2rem; }
+	label { display: grid; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; }
+	input { border: 1px solid var(--line); border-radius: 0.4rem; padding: 0.85rem; font: inherit; }
+	.button { border: 0; border-radius: 0.45rem; padding: 0.85rem; color: white; background: var(--blue); font: inherit; font-weight: 700; cursor: pointer; }
+	.auth-switch { margin-top: 1.5rem; color: var(--muted); font-size: 0.9rem; }
+	.auth-switch a { color: var(--blue); font-weight: 700; }
+	.auth-art { display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem; color: white; background: var(--blue-dark); }
+	.art-number { font-family: var(--font-heading); font-weight: 800; }
+	.auth-art h2 { max-width: 12ch; margin-top: auto; color: white; }
+	.auth-art p { max-width: 28rem; margin-top: 1rem; color: #b9c8e9; }
+	@media (max-width: 55em) { .auth-grid { grid-template-columns: 1fr; } .auth-art { min-height: 20rem; padding: 2rem; } .auth-art h2 { margin-top: 3rem; } }
+</style>

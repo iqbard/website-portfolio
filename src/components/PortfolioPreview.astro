@@ -10,110 +10,20 @@ const publicSlug = Astro.props.project.id.split('/').pop()?.replace(/\.md$/, '')
 ---
 
 <a class="card" href={`/work/${publicSlug}`}>
-	<div class="visual">
-		<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
-	</div>
-	<div class="info">
-		<div class="tags" aria-label="Project tags">
-			{data.tags.map((tag) => <span class="tag">{tag}</span>)}
-		</div>
-		<h2>{data.title}</h2>
-		<p>{data.description}</p>
-	</div>
+	<div class="visual"><img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" /></div>
+	<div class="info"><div class="tags" aria-label="Project tags">{data.tags.map((tag) => <span class="tag">{tag}</span>)}</div><h2>{data.title}</h2><p>{data.description}</p><span class="read-more">View case study ↗</span></div>
 </a>
 
 <style>
-	.card {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		overflow: hidden;
-		box-shadow: var(--shadow-sm);
-		text-decoration: none;
-		font-family: var(--font-brand);
-		font-size: var(--text-base);
-		font-weight: 400;
-		transition: box-shadow var(--theme-transition);
-	}
-
-	.card:hover {
-		box-shadow: var(--shadow-md);
-	}
-
-	.info {
-		position: relative;
-		z-index: 1;
-		padding: 1rem;
-		color: var(--gray-0);
-		background: var(--gray-999);
-	}
-
-	.visual {
-		position: relative;
-		flex: 0 0 auto;
-		background: var(--gray-900);
-	}
-
-	.tags {
-		display: flex;
-		gap: 0.35rem;
-		overflow: hidden;
-		margin-bottom: 0.35rem;
-	}
-
-	.tag {
-		padding: 0.2rem 0.55rem;
-		border: 1px solid var(--accent-regular);
-		border-radius: 999rem;
-		color: var(--accent-text-over);
-		background: var(--accent-regular);
-		font-size: 0.7rem;
-		line-height: 1.2;
-		white-space: nowrap;
-	}
-
-	h2 {
-		margin: 0;
-		font-size: var(--text-lg);
-		line-height: 1.15;
-	}
-
-	p {
-		display: -webkit-box;
-		margin: 0.35rem 0 0;
-		overflow: hidden;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
-		font-family: var(--font-body);
-		font-size: 0.8rem;
-		line-height: 1.25;
-	}
-
-	.info h2,
-	.info p {
-		text-shadow: 0 1px 2px rgb(0 0 0 / 0.55);
-	}
-
-	img {
-		width: 100%;
-		height: auto;
-		display: block;
-		object-fit: contain;
-		background: transparent;
-	}
-
-	@media (min-width: 50em) {
-		.card {
-			border-radius: 1.5rem;
-		}
-
-		.info {
-			padding-right: 1.5rem;
-			padding-left: 1.5rem;
-			padding-bottom: 1.5rem;
-		}
-	}
+	.card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 0.9rem; color: var(--ink); background: white; box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+	.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+	.visual { aspect-ratio: 16 / 9; overflow: hidden; background: var(--blue-soft); }
+	.visual img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+	.card:hover .visual img { transform: scale(1.04); }
+	.info { padding: 1.35rem; }
+	.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.8rem; }
+	.tag { border-radius: 999px; padding: 0.2rem 0.55rem; color: var(--blue); background: var(--blue-soft); font-size: 0.7rem; font-weight: 700; }
+	h2 { font-size: 1.35rem; }
+	p { display: -webkit-box; margin-top: 0.55rem; overflow: hidden; color: var(--muted); font-size: 0.85rem; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+	.read-more { display: inline-block; margin-top: 1rem; color: var(--blue); font-size: 0.82rem; font-weight: 700; }
 </style>

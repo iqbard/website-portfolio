@@ -1,73 +1,31 @@
 ---
-import Icon from './Icon.astro';
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-	<div class="group">
-		<p>
-			Designed & Developed by Iqbal via <a href="https://astro.build/">Astro </a>
-			<Icon icon="rocket-launch" size="1.2em" />
-		</p>
-		<p>&copy; {currentYear}  Iqbal Abdurachman</p>
+	<div class="container footer-inner">
+		<div>
+			<a href="/" class="footer-logo">Iqbal Abdurachman</a>
+			<p>Performance marketing, thoughtful digital experiences, and websites that move people to act.</p>
+		</div>
+		<div class="footer-links">
+			<a href="/work/">Work</a>
+			<a href="/about/">About</a>
+			<a href="https://linkedin.com/in/iqbard26">LinkedIn</a>
+			<a href="https://github.com/iqbard">GitHub</a>
+		</div>
 	</div>
-	<p class="socials">
-		<a href="https://linkedin.com/in/iqbard26"> Linkedin</a>
-		<a href="https://github.com/iqbard"> GitHub</a>
-	</p>
+	<div class="container footer-bottom"><span>© {currentYear} Iqbal Abdurachman</span><span>Built with Astro</span></div>
 </footer>
+
 <style>
-	footer {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-		margin-top: auto;
-		padding: 3rem 2rem 3rem;
-		text-align: center;
-		color: var(--gray-400);
-		font-size: var(--text-sm);
-	}
-
-	footer a {
-		color: var(--gray-400);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	footer a:hover,
-	footer a:focus {
-		text-decoration-color: currentColor;
-	}
-
-	.group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.socials {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	@media (min-width: 50em) {
-		footer {
-			flex-direction: row;
-			justify-content: space-between;
-			padding: 2.5rem 5rem;
-		}
-
-		.group {
-			flex-direction: row;
-			gap: 1rem;
-			flex-wrap: wrap;
-		}
-
-		.socials {
-			justify-content: flex-end;
-		}
-	}
+	footer { padding: 4rem 0 1.5rem; color: var(--muted); background: var(--surface-soft); }
+	.footer-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+	.footer-logo { color: var(--ink); font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+	footer p { max-width: 34rem; margin-top: 0.75rem; }
+	.footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-content: start; }
+	.footer-links a { text-decoration: none; }
+	.footer-links a:hover { color: var(--blue); }
+	.footer-bottom { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 1.25rem; font-size: 0.8rem; }
+	@media (max-width: 45em) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 0.4rem; } }
 </style>
