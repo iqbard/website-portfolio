@@ -1,5 +1,6 @@
 ---
 title: Shift Academy
+category: Website Building
 publishDate: 2019-10-02 00:00:00
 img: /assets/shiftacademy-website.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.

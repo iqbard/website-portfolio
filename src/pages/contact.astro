@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Contact | Iqbal Abdurachman" description="Start a conversation about your next digital project.">
-	<section class="contact-hero"><div class="container contact-grid"><div><p class="eyebrow">Contact</p><h1>Let’s talk about what comes next.</h1><p class="subtitle">Use this page as your contact template. Replace the details below with the channels and form destination you want to use.</p><div class="contact-cards"><a href="mailto:hello@example.com"><span>✉</span><div><small>Send an email</small><strong>hello@example.com</strong></div></a><a href="https://linkedin.com/in/iqbard26"><span>↗</span><div><small>Connect on LinkedIn</small><strong>linkedin.com/in/iqbard26</strong></div></a><div><span>⌖</span><div><small>Based in</small><strong>Jakarta, Indonesia</strong></div></div></div></div><div class="form-card"><h2>Tell me a little more.</h2><p>Give the template some context and I’ll get back to you.</p><form><label for="name">Name<input id="name" name="name" placeholder="Your name" /></label><label for="email">Email<input id="email" name="email" type="email" placeholder="you@example.com" /></label><label for="message">What are you working on?<textarea id="message" name="message" rows="5" placeholder="A few words about the project"></textarea></label><button class="button button-primary" type="submit">Send inquiry <span aria-hidden="true">↗</span></button></form></div></div></section>
+	<section class="contact-hero"><div class="container contact-grid"><div><p class="eyebrow">Contact</p><h1>Let’s talk about what comes next.</h1><p class="subtitle">Tell me what you’re building, where it feels stuck, and what a useful outcome looks like.</p><div class="contact-cards"><a href="mailto:hello@example.com"><span>✉</span><div><small>Send an email</small><strong>hello@example.com</strong></div></a><a href="https://linkedin.com/in/iqbard26"><span>↗</span><div><small>Connect on LinkedIn</small><strong>linkedin.com/in/iqbard26</strong></div></a><div><span>⌖</span><div><small>Based in</small><strong>Jakarta, Indonesia</strong></div></div></div></div><div class="form-card"><h2>Tell me a little more.</h2><p>Your inquiry will appear in the Leads section of Decap CMS.</p><form id="lead-form"><label for="name">Name<input id="name" name="name" autocomplete="name" required placeholder="Your name" /></label><label for="email">Email<input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" /></label><label for="message">What are you working on?<textarea id="message" name="message" rows="5" required placeholder="A few words about the project"></textarea></label><label class="website-field" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label><button class="button button-primary" type="submit">Send inquiry <span aria-hidden="true">↗</span></button><p class="form-status" id="form-status" role="status" aria-live="polite"></p></form></div></div></section>
 </BaseLayout>
 
 <style>
@@ -27,5 +27,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	input:focus, textarea:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
 	.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 0; border-radius: 0.45rem; padding: 0.85rem 1rem; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
 	.button-primary { color: white; background: var(--blue); }
+	.website-field { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+	.form-status { min-height: 1.5rem; color: var(--muted); font-size: 0.85rem; }
+	.form-status.success { color: #167447; }
+	.form-status.error { color: #b42318; }
 	@media (max-width: 55em) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
 </style>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>('#lead-form');
+	const status = document.querySelector<HTMLElement>('#form-status');
+
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+		if (!button || !status) return;
+
+		button.disabled = true;
+		button.textContent = 'Sending...';
+		status.className = 'form-status';
+		status.textContent = '';
+
+		try {
+			const response = await fetch('/api/leads', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(Object.fromEntries(new FormData(form))),
+			});
+			const result = await response.json();
+			if (!response.ok) throw new Error(result.error || 'Unable to send your inquiry.');
+
+			form.reset();
+			status.className = 'form-status success';
+			status.textContent = 'Thanks. Your inquiry has been received.';
+		} catch (error) {
+			status.className = 'form-status error';
+			status.textContent = error instanceof Error ? error.message : 'Unable to send your inquiry.';
+		} finally {
+			button.disabled = false;
+			button.innerHTML = 'Send inquiry <span aria-hidden="true">↗</span>';
+		}
+	});
+</script>

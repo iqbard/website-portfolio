@@ -24,9 +24,35 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Website Building"
+          - "Paid Media"
+          - "Ecommerce Management"
       - {label: "Publish Date", name: "publishDate", widget: "datetime"}
       - {label: "Image", name: "img", widget: "image", required: false}
       - {label: "Image alt", name: "img_alt", widget: "string", required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "leads"
+    label: "Leads"
+    folder: "src/content/leads"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", read_only: true}
+      - {label: "Name", name: "name", widget: "string", read_only: true}
+      - {label: "Email", name: "email", widget: "string", read_only: true}
+      - {label: "Message", name: "message", widget: "text", read_only: true}
+      - {label: "Created At", name: "createdAt", widget: "datetime", read_only: true}
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - "New"
+          - "Contacted"
+          - "Qualified"
+          - "Closed"

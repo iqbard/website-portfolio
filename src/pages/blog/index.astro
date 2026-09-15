@@ -7,7 +7,7 @@ const projects = (await getCollection('work')).sort((a, b) => b.data.publishDate
 
 <BaseLayout title="Projects | Iqbal Abdurachman" description="Selected projects and case studies by Iqbal Abdurachman.">
 	<section class="page-hero"><div class="container narrow"><p class="eyebrow">Projects</p><h1>Work that turns a good idea into a useful experience.</h1><p class="subtitle">A reusable project library for case studies, launches, and collaborations. Add and edit entries through the Work collection in Decap CMS.</p></div></section>
-	<section class="section container"><div class="project-grid">{projects.map((project) => <article class="project-card"><div class="project-meta"><span>{project.data.tags[0] || 'Case study'}</span><time datetime={project.data.publishDate.toISOString()}>{project.data.publishDate.toLocaleDateString('en-US', { year: 'numeric' })}</time></div><h2>{project.data.title}</h2><p>{project.data.description}</p><a href={`/blog/${project.id.split('/').pop()?.replace(/\.md$/, '')}/`}>View project ↗</a></article>)}</div></section>
+	<section class="section container"><div class="project-grid">{projects.map((project) => <article class="project-card"><div class="project-meta"><span>{project.data.category}</span><time datetime={project.data.publishDate.toISOString()}>{project.data.publishDate.toLocaleDateString('en-US', { year: 'numeric' })}</time></div><h2>{project.data.title}</h2><p>{project.data.description}</p><a href={`/blog/${project.id.split('/').pop()?.replace(/\.md$/, '')}/`}>View project ↗</a></article>)}</div></section>
 </BaseLayout>
 
 <style>

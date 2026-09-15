@@ -1,5 +1,6 @@
 ---
 title: Squadgames
+category: Website Building
 publishDate: 2019-10-02 00:00:00
 img: /assets/squadgames-website.webp
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
