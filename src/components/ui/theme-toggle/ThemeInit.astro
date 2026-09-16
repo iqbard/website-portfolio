@@ -1,0 +1,41 @@
+---
+// src/components/ui/theme-toggle/ThemeInit.astro - script inline anti-flash : applique le theme memorise sur <html> avant le premier rendu.
+// A inclure dans le <head> du layout de base, le plus tot possible. Reapplique
+// aussi la classe apres chaque view transition (astro:after-swap remplace les
+// attributs de <html> par ceux rendus cote serveur).
+//
+// LE CLAIR EST LE DEFAUT, ET C'EST UNE DECISION, PAS UN REGLAGE.
+//
+// Le defaut etait le sombre, au motif que la scene, les halos et les lueurs de
+// bordure ont ete dessines pour lui. L'argument est vrai et il ne suffit pas :
+// la majorite des visiteurs prefere le clair, et un site qui ouvre dans la
+// version que son visiteur n'a pas choisie perd la premiere seconde a le
+// surprendre. Toute la famille ouvre donc en clair.
+//
+// Le sombre reste a un geste, et le choix du visiteur, lui, est memorise et
+// respecte : `stored` gagne toujours contre le defaut.
+//
+// Qui veut ouvrir en sombre remplace la ligne `dark` par
+// `stored !== "light"`. Qui veut suivre le systeme ecrit :
+// stored === "dark" || (stored !== "light" &&
+//   window.matchMedia("(prefers-color-scheme: dark)").matches)
+---
+
+<script is:inline>
+  (function () {
+    var KEY = "reef-theme";
+    function applyTheme() {
+      var stored = null;
+      try {
+        stored = localStorage.getItem(KEY);
+      } catch (error) {
+        /* stockage indisponible : on reste en clair, comme un premier passage */
+      }
+      var dark = stored === "dark";
+      document.documentElement.classList.toggle("dark", dark);
+      document.documentElement.style.colorScheme = dark ? "dark" : "light";
+    }
+    applyTheme();
+    document.addEventListener("astro:after-swap", applyTheme);
+  })();
+</script>

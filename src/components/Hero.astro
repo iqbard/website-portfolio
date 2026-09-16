@@ -1,59 +1,53 @@
 ---
+// Display heading block, after the Reef SectionHeader typography: uppercase
+// eyebrow with the turquoise rule, a display-size title that can carry the
+// accent word and its wave, and a muted tagline. Used by the case study header
+// and any page that needs a bare (unbanded) heading block.
 interface Props {
 	title: string;
 	tagline?: string;
+	eyebrow?: string;
+	/** The one word that turns turquoise and carries the wave (.accent-script). */
+	accentWord?: string;
 	align?: 'start' | 'center';
 }
 
-const { align = 'center', tagline, title } = Astro.props;
+const { align = 'center', accentWord, eyebrow, tagline, title } = Astro.props;
+
+const accent = accentWord?.trim() ?? '';
+const at = accent ? title.toLowerCase().indexOf(accent.toLowerCase()) : -1;
+const before = at >= 0 ? title.slice(0, at) : title;
+const word = at >= 0 ? title.slice(at, at + accent.length) : '';
+const after = at >= 0 ? title.slice(at + accent.length) : '';
 ---
 
-<div class:list={['hero stack gap-4', align]}>
-	<div class="stack gap-2">
-		<h1 class="title">{title}</h1>
-		{tagline && <p class="tagline">{tagline}</p>}
-	</div>
+<div class:list={['flex flex-col gap-4', align === 'center' ? 'items-center text-center' : 'items-start text-left']}>
+	{
+		eyebrow && (
+			<p
+				class:list={[
+					'text-muted-foreground flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase',
+					align === 'center' && 'justify-center',
+				]}
+			>
+				<span class="bg-primary inline-block h-px w-8 shrink-0" aria-hidden="true" />
+				{eyebrow}
+			</p>
+		)
+	}
+	<h1 class="font-display text-display-sm max-w-3xl sm:text-display-md md:text-display-lg">
+		{
+			word ? (
+				<Fragment>
+					{before}
+					<span class="accent-script">{word}</span>
+					{after}
+				</Fragment>
+			) : (
+				title
+			)
+		}
+	</h1>
+	{tagline && <p class="text-muted-foreground measure-wide text-lg leading-relaxed">{tagline}</p>}
 	<slot />
 </div>
-
-<style>
-	.hero {
-		font-size: var(--text-lg);
-		text-align: center;
-		padding: 3rem 0 1rem;
-	}
-
-	.title,
-	.tagline {
-		max-width: 37ch;
-		margin-inline: auto;
-	}
-
-	.title {
-		font-size: var(--text-4xl);
-		color: var(--ink);
-	}
-
-	.tagline {
-		color: var(--muted);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			font-size: var(--text-xl);
-		}
-
-		.start {
-			text-align: start;
-		}
-
-		.start .title,
-		.start .tagline {
-			margin-inline: unset;
-		}
-
-		.title {
-			font-size: clamp(3.5rem, 7vw, 5.25rem);
-		}
-	}
-</style>

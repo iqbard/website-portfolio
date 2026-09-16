@@ -1,8 +1,34 @@
 ---
-import Hero from '../components/Hero.astro';
+// 404 as a deep-scene panel: the miss is acknowledged with the house display
+// type and the wave, then the reader is offered the two useful exits.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Button } from '../components/ui/button';
+import { Icon } from '../components/svg/icons';
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+<BaseLayout title="Page not found | Iqbal Abdurachman" description="This page drifted out with the tide.">
+	<div class="bg-background p-2 sm:p-3 md:p-4">
+		<section
+			class="deep-scene rounded-panel relative isolate flex min-h-[70svh] items-center overflow-hidden"
+			data-deep-scene
+		>
+			<div class="container-page relative z-10 flex flex-col items-center gap-6 py-24 text-center">
+				<p class="text-xs font-medium tracking-[0.18em] text-white/70 uppercase">404</p>
+				<h1 class="font-display text-display-md max-w-xl lg:text-display-lg">
+					This page went out with the <span class="accent-script">tide</span>.
+				</h1>
+				<p class="measure-prose leading-relaxed text-white/80">
+					The address you followed does not exist here anymore, or never did. The work and the
+					way in are both a click away.
+				</p>
+				<div class="mt-2 flex flex-wrap items-center justify-center gap-3">
+					<Button href="/" variant="hero" size="lg">
+						Back home
+						<Icon name="arrow-right" size={17} />
+					</Button>
+					<Button href="/work/" variant="outline" size="lg">See the work</Button>
+				</div>
+			</div>
+		</section>
+	</div>
 </BaseLayout>

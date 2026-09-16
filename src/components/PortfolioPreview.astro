@@ -1,4 +1,9 @@
 ---
+// Project card, after the Reef PostCard: a white card with a quiet border and
+// float shadow that lifts on hover. Topic pills sit above the display title,
+// the description is clamped, and the read-more link keeps the primary text
+// tone. Works on light and dark because it writes roles, never colors.
+import { Icon } from './svg/icons';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -6,24 +11,35 @@ interface Props {
 }
 
 const { data, slug } = Astro.props.project;
+const tags: string[] = data.tags;
 const publicSlug = Astro.props.project.id.split('/').pop()?.replace(/\.md$/, '') || slug;
 ---
 
-<a class="card" href={`/work/${publicSlug}`}>
-	<div class="visual"><img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" /></div>
-	<div class="info"><div class="tags" aria-label="Project tags">{data.tags.map((tag) => <span class="tag">{tag}</span>)}</div><h2>{data.title}</h2><p>{data.description}</p><span class="read-more">View case study ↗</span></div>
+<a class="group bg-card border-border shadow-float hover:shadow-lift flex flex-col overflow-hidden rounded-card border text-card-foreground transition-[transform,box-shadow] duration-200 hover:-translate-y-1" href={`/work/${publicSlug}/`}>
+	<div class="bg-surface border-border aspect-video overflow-hidden border-b">
+		<img
+			src={data.img}
+			alt={data.img_alt || ''}
+			loading="lazy"
+			decoding="async"
+			class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+		/>
+	</div>
+	<div class="flex flex-1 flex-col p-6">
+		<div class="mb-3 flex flex-wrap gap-1.5" aria-label="Project tags">
+			{
+				tags.map((tag) => (
+					<span class="text-primary-text bg-primary/10 rounded-pill px-2.5 py-0.5 text-xs font-semibold">
+						{tag}
+					</span>
+				))
+			}
+		</div>
+		<h2 class="font-display text-2xl font-bold tracking-tight">{data.title}</h2>
+		<p class="text-muted-foreground mt-2 line-clamp-3 text-[0.9rem] leading-relaxed">{data.description}</p>
+		<span class="text-primary-text mt-4 inline-flex items-center gap-1.5 text-sm font-bold">
+			View case study
+			<Icon name="arrow-up-right" size={15} class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+		</span>
+	</div>
 </a>
-
-<style>
-	.card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 0.9rem; color: var(--ink); background: white; box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-	.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-	.visual { aspect-ratio: 16 / 9; overflow: hidden; background: var(--blue-soft); }
-	.visual img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-	.card:hover .visual img { transform: scale(1.04); }
-	.info { padding: 1.35rem; }
-	.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.8rem; }
-	.tag { border-radius: 999px; padding: 0.2rem 0.55rem; color: var(--blue); background: var(--blue-soft); font-size: 0.7rem; font-weight: 700; }
-	h2 { font-size: 1.35rem; }
-	p { display: -webkit-box; margin-top: 0.55rem; overflow: hidden; color: var(--muted); font-size: 0.85rem; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
-	.read-more { display: inline-block; margin-top: 1rem; color: var(--blue); font-size: 0.82rem; font-weight: 700; }
-</style>

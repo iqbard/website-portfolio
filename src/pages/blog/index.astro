@@ -1,26 +1,71 @@
 ---
+// Notes archive: the PageHero band, then a grid of quiet article cards. The
+// cards list the work collection the same way the CMS publishes it and link
+// into /blog/ routes.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { Icon } from '../../components/svg/icons';
 
-const projects = (await getCollection('work')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const projects = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
 ---
 
-<BaseLayout title="Projects | Iqbal Abdurachman" description="Selected projects and case studies by Iqbal Abdurachman.">
-	<section class="page-hero"><div class="container narrow"><p class="eyebrow">Projects</p><h1>Work that turns a good idea into a useful experience.</h1><p class="subtitle">A reusable project library for case studies, launches, and collaborations. Add and edit entries through the Work collection in Decap CMS.</p></div></section>
-	<section class="section container"><div class="project-grid">{projects.map((project) => <article class="project-card"><div class="project-meta"><span>{project.data.category}</span><time datetime={project.data.publishDate.toISOString()}>{project.data.publishDate.toLocaleDateString('en-US', { year: 'numeric' })}</time></div><h2>{project.data.title}</h2><p>{project.data.description}</p><a href={`/blog/${project.id.split('/').pop()?.replace(/\.md$/, '')}/`}>View project ↗</a></article>)}</div></section>
-</BaseLayout>
+<BaseLayout title="Notes | Iqbal Abdurachman" description="Case studies, launches, and collaborations by Iqbal Abdurachman.">
+	<main>
+		<PageHero
+			eyebrow="Notes"
+			title="Notes from the work itself."
+			accentWord="work"
+			lede="A reusable project library for case studies, launches, and collaborations. Add and edit entries through the Work collection in Decap CMS."
+		/>
 
-<style>
-	.page-hero { padding: 5rem 0 4rem; text-align: center; background: var(--blue-soft); }
-	.narrow { max-width: 46rem; margin-inline: auto; }
-	.page-hero h1 { margin-top: 0.75rem; }
-	.subtitle { margin-top: 1.25rem; color: var(--muted); font-size: 1.1rem; }
-	.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-	.project-card { min-height: 17rem; border: 1px solid var(--line); border-radius: 0.8rem; padding: 1.75rem; background: white; box-shadow: var(--shadow-sm); }
-	.project-meta { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.75rem; }
-	.project-meta span { color: var(--blue); font-weight: 700; }
-	.project-card h2 { margin-top: 3rem; font-size: 1.55rem; }
-	.project-card p { margin-top: 0.7rem; color: var(--muted); }
-	.project-card a { display: inline-block; margin-top: 1.25rem; color: var(--blue); font-weight: 700; text-decoration: none; }
-	@media (max-width: 45em) { .project-grid { grid-template-columns: 1fr; } }
-</style>
+		<section class="container-page py-16 md:py-24">
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{
+					projects.map((project) => (
+						<article class="group bg-card border-border shadow-float hover:shadow-lift flex flex-col overflow-hidden rounded-card border transition-[transform,box-shadow] duration-200 hover:-translate-y-1">
+							<div class="bg-surface border-border aspect-video overflow-hidden border-b">
+								<img
+									src={project.data.img}
+									alt={project.data.img_alt || ''}
+									loading="lazy"
+									decoding="async"
+									class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+								/>
+							</div>
+							<div class="flex flex-1 flex-col p-6">
+								<div class="text-muted-foreground flex items-center justify-between gap-4 text-xs">
+									<span class="text-primary-text bg-primary/10 rounded-pill px-2.5 py-0.5 font-semibold">
+										{project.data.category}
+									</span>
+									<time datetime={project.data.publishDate.toISOString()}>
+										{project.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+									</time>
+								</div>
+								<h2 class="font-display group-hover:text-primary-text mt-4 text-xl font-bold tracking-tight transition-colors duration-200">
+									{project.data.title}
+								</h2>
+								<p class="text-muted-foreground mt-2 line-clamp-3 flex-1 text-sm leading-relaxed">
+									{project.data.description}
+								</p>
+								<a
+									href={`/blog/${project.id.split('/').pop()?.replace(/\.md$/, '')}/`}
+									class="text-primary-text mt-5 inline-flex items-center gap-1.5 text-sm font-bold"
+								>
+									Read the note
+									<Icon
+										name="arrow-up-right"
+										size={15}
+										class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+									/>
+								</a>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
+	</main>
+</BaseLayout>

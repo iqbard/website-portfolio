@@ -1,70 +1,316 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+/* src/styles/global.css - la feuille racine de Reef : les imports, la couche de base, les classes maison et le garde-fou de mouvement. */
 
-:root {
-	--blue: #2667ff;
-	--blue-dark: #001a57;
-	--blue-soft: #ebf1ff;
-	--ink: #101a2e;
-	--muted: #5d6f8d;
-	--line: #dce5f3;
-	--surface: #ffffff;
-	--surface-soft: #f8fafc;
-	--font-body: 'DM Sans', sans-serif;
-	--font-heading: 'Manrope', sans-serif;
-	--font-brand: var(--font-heading);
-	--text-sm: 0.875rem;
-	--text-base: 1rem;
-	--text-lg: 1.125rem;
-	--text-md: 1.125rem;
-	--text-xl: 1.5rem;
-	--text-2xl: 2rem;
-	--text-3xl: 2.75rem;
-	--text-4xl: clamp(2.65rem, 6vw, 5.25rem);
-	--shadow-sm: 0 8px 24px rgb(38 103 255 / 0.08);
-	--shadow-md: 0 24px 60px rgb(38 103 255 / 0.14);
-	--gray-0: var(--ink);
-	--gray-200: var(--muted);
-	--gray-400: var(--muted);
-	--gray-800: var(--line);
-	--gray-900: var(--surface-soft);
-	--gray-999: var(--surface);
-	--gray-999_40: rgb(248 250 252 / 0.8);
-	--gray-999-basis: 248, 250, 252;
-	--accent-regular: var(--blue);
-	--accent-dark: var(--blue-dark);
-	--accent-light: #6f98ff;
-	--accent-text-over: white;
-	--accent-overlay: rgb(38 103 255 / 0.2);
-	--gradient-subtle: linear-gradient(145deg, var(--surface-soft), var(--surface));
-	--gradient-accent-orange: linear-gradient(145deg, var(--blue), var(--blue-dark));
-	--gradient-stop-1: var(--blue);
-	--gradient-stop-2: var(--blue-dark);
-	--gradient-stop-3: var(--blue);
-	--theme-transition: 0.2s ease;
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./prose.css";
+@import "./motion/index.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+ * Tout ce qu'un theme de blog vend tient dans une phrase : huit minutes de
+ * lecture confortable. C'est ce qui decide de la repartition ci-dessous.
+ *
+ *   tokens.css       la direction artistique (couleurs, polices, mesure)
+ *   prose.css        la colonne de lecture, le coeur du theme
+ *   motion/index.css le catalogue d'animations, en @utility
+ *   ce fichier       la couche de base, trois classes maison, le garde-fou
+ *
+ * La couche de base ci-dessous ne fait qu'une chose : poser le texte. Le corps
+ * en grotesque de texte, les titres en grotesque d'affichage, la chasse qui
+ * suit la taille, et les ancres qui ne se cachent pas sous la barre. Rien de
+ * decoratif n'y entre : le decor vit dans les sections qui en ont besoin.
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    @apply border-border;
+  }
+
+  :root {
+    /* De combien une ancre doit descendre pour ne pas se glisser sous la barre
+     * collante. Une seule valeur, lue par les titres, les notes et :target. */
+    --anchor-offset: 5.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* Racine legerement fluide : 16px sur mobile, 18px sur les tres grands
+     * ecrans. Tout le texte courant suit, sans une seule media query. */
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  }
+
+  body {
+    /* Tout le texte courant est en Instrument Sans. Le theme n'a plus aucune
+     * serif : l'ancienne paire de serifs etait la signature de personne, et
+     * une grotesque bien dessinee tient les huit minutes de lecture aussi
+     * bien qu'une serif d'ecran, ce que dix ans de lecture sur telephone ont
+     * tranche. Le mot d'accent des titres garde la police du titre et porte
+     * une vague turquoise (voir .accent-script). */
+    @apply bg-background text-foreground font-sans antialiased;
+    font-synthesis-weight: none;
+  }
+
+  /* Les titres sont en Space Grotesk 700. Une grotesque a besoin de la graisse
+   * haute pour tenir une hierarchie : a 600 elle ressemble a du texte courant
+   * en plus gros, la ou une serif a fort contraste se distinguait par son
+   * dessin. La chasse tres negative de l'echelle d'affichage compense le gras
+   * et empeche les grands titres de se boursoufler. */
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    @apply font-display font-bold;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Une ancre ne doit jamais atterrir sous la barre. Pose ici plutot que dans
+   * .prose : les sujets, les auteurs et les sections legales ont aussi des
+   * titres qu'on cible depuis un sommaire. */
+  :where(h1, h2, h3, h4, h5, h6, [id]:target) {
+    scroll-margin-block-start: var(--anchor-offset);
+  }
+
+  /* La chasse suit la taille du texte, pas le composant qui le contient.
+   * Sans ces trois regles, une majuscule espacee a 11 px et un chapeau a
+   * 22 px partagent la meme chasse, et l'un des deux a forcement tort.
+   * Les utilitaires de chasse de Tailwind (tracking-*) restent prioritaires
+   * la ou un choix explicite a ete fait : ces regles ne portent que sur les
+   * tailles, elles ne remplacent aucune intention. */
+  :where(.text-xs, .text-\[11px\], .text-\[10px\]) {
+    letter-spacing: var(--tracking-optique-xs);
+  }
+
+  :where(.text-sm) {
+    letter-spacing: var(--tracking-optique-sm);
+  }
+
+  :where(.text-xl, .text-2xl, .text-3xl) {
+    letter-spacing: var(--tracking-optique-lg);
+  }
+
+  /* Le texte pose sur du verre a besoin d'aide : le fond bouge sous lui, et un
+   * gris a faible opacite disparait des qu'une zone claire passe dessous. On
+   * remonte donc l'opacite et on compense par un demi-cran de graisse. */
+  .glass :where(p, li, dd, figcaption, small) {
+    font-weight: 450;
+  }
+
+  :focus-visible {
+    @apply ring-ring outline-none ring-2 ring-offset-2;
+    ring-offset-color: var(--reef-background);
+  }
+
+  /* La selection suit le primaire, qui est le turquoise de la maison. Deux
+   * valeurs et non une : un turquoise clair sur fond encre rend le texte
+   * selectionne moins lisible que le texte normal, ce qui est exactement
+   * l'inverse du but. */
+  ::selection {
+    background: var(--color-reef-300);
+    color: var(--color-ink-950);
+  }
+
+  .dark ::selection {
+    background: var(--color-reef-600);
+    color: var(--color-paper-50);
+  }
 }
 
-* { box-sizing: border-box; margin: 0; }
-html, body { min-height: 100%; overflow-x: hidden; }
-body { background: var(--surface); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; line-height: 1.6; }
-a { color: inherit; }
-a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-img { max-width: 100%; height: auto; }
-h1, h2, h3, h4, h5 { color: var(--ink); font-family: var(--font-heading); font-weight: 800; line-height: 1.08; }
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; border-radius: 0.45rem; padding: 0.85rem 1.1rem; font: inherit; font-weight: 600; line-height: 1.2; text-decoration: none; cursor: pointer; }
-.button:active, .nav-cta:active { transform: translateY(1px); }
-.wrapper, .container { width: min(100% - 2rem, 78rem); margin-inline: auto; }
-.stack { display: flex; flex-direction: column; }
-.gap-2 { gap: 0.5rem; }
-.gap-4 { gap: 1rem; }
-.gap-8 { gap: 2rem; }
-.gap-20 { gap: 5rem; }
-.gap-48 { gap: 8rem; }
-@media (min-width: 50em) { .wrapper, .container { width: min(100% - 4rem, 78rem); } .lg\:gap-20 { gap: 5rem; } .lg\:gap-48 { gap: 8rem; } }
+@layer components {
+  /* =========================================================================
+   * Classes maison
+   * ======================================================================= */
 
+  /* Le mot d'accent d'un titre. Un seul par titre, jamais deux.
+   * Plus AUCUNE police a part : meme police que le titre, turquoise, souligne
+   * d'une VAGUE - la signature Aloha Pixel (le logo est une vague), pas un
+   * tic d'outil. L'italique serif d'accent est bannie de toute la famille :
+   * un mot en serif italique au milieu d'un titre sans serif est l'ornement
+   * le plus repandu du web, et il ne veut rien dire de la marque.
+   * La vague vit dans --accent-wave (tokens.css), une par mode puisque le
+   * primaire de Reef change entre clair et sombre. */
+  .accent-script {
+    @apply text-primary font-normal not-italic;
+    /* La vague loge dans la zone des descendantes, jamais dans l'interligne :
+     * les titres sont composes tres serres, un trait qui deborde mord la
+     * ligne suivante. Pas de padding vertical, position remontee. */
+    background-image: var(--accent-wave);
+    background-repeat: repeat-x;
+    background-position: left calc(100% - 0.05em);
+    background-size: 1.3em 0.16em;
+    padding-inline: 0.04em;
+  }
+
+  /* =========================================================================
+   * La scene profonde
+   * =========================================================================
+   * Les deux bandes qui doivent etre une IMAGE et pas un bloc de texte (le
+   * premier ecran, l'invitation a s'abonner) restent sombres dans les deux
+   * modes. Ce n'est pas une inattention : un cadre qui blanchit en clair perd
+   * ses halos, ses lueurs de bordure et son contraste, donc il perd l'image et
+   * il ne reste qu'un formulaire gris. Les bandes de lecture, elles, suivent le
+   * theme normalement.
+   *
+   * La scene ne fige AUCUNE couleur dans le markup : elle reaffecte les roles
+   * pour son sous-arbre. Ce qui est ecrit dedans continue d'ecrire
+   * text-foreground, border-border et bg-primary, et un rebranding la repeint
+   * en meme temps que le reste. */
+  .deep-scene {
+    --reef-background: var(--color-ink-950);
+    --reef-foreground: var(--color-paper-50);
+    --reef-muted: var(--color-ink-900);
+    --reef-muted-foreground: var(--color-ink-300);
+    --reef-card: color-mix(in oklab, var(--color-ink-900) 78%, transparent);
+    --reef-card-foreground: var(--color-paper-50);
+    --reef-primary: var(--color-reef-400);
+    --reef-primary-foreground: var(--color-ink-950);
+    /* Le primaire de la scene est le turquoise 400 du sombre, dans les deux
+     * modes : la vague du mot d'accent suit, comme les autres roles. */
+    --accent-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 10' preserveAspectRatio='none'%3E%3Cpath d='M0 7 Q 6 2.5 12 7 T 24 7 T 36 7 T 48 7' fill='none' stroke='%233fc0e0' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E");
+    --reef-accent: var(--color-coral-400);
+    --reef-accent-foreground: var(--color-ink-950);
+    --reef-border: color-mix(in oklab, var(--color-paper-50) 15%, transparent);
+    --reef-ring: var(--color-reef-400);
+    --reef-surface: var(--color-ink-900);
+
+    /* Les memes outils que le mode sombre : bordure lumineuse et lueur interne
+     * plutot qu'ombre portee, qui ne se voit pas sur du sombre. */
+    --reef-shadow-float:
+      0 0 0 1px color-mix(in oklab, var(--color-paper-50) 9%, transparent),
+      0 1px 0 0 color-mix(in oklab, var(--color-paper-50) 8%, transparent) inset,
+      0 14px 36px -18px rgb(0 0 0 / 0.7);
+    --reef-shadow-lift:
+      0 0 0 1px color-mix(in oklab, var(--color-reef-400) 26%, transparent),
+      0 1px 0 0 color-mix(in oklab, var(--color-paper-50) 10%, transparent) inset,
+      0 22px 58px -24px color-mix(in oklab, var(--color-reef-400) 32%, transparent),
+      0 18px 46px -22px rgb(0 0 0 / 0.75);
+    --reef-shadow-glass:
+      0 1px 0 0 rgb(255 255 255 / 0.09) inset,
+      0 0 0 1px color-mix(in oklab, var(--color-paper-50) 10%, transparent),
+      0 14px 44px -16px rgb(0 0 0 / 0.6);
+
+    /* Le fond n'est pas un aplat : deux nappes decalees donnent un centre a la
+     * lumiere, et un aplat n'a pas de centre. Les halos animes se posent
+     * par-dessus, en elements a part, parce qu'un degre de fond ne derive pas. */
+    background-color: var(--color-ink-950);
+    background-image:
+      radial-gradient(
+        120% 90% at 12% 0%,
+        color-mix(in oklab, var(--color-ink-800) 85%, transparent) 0%,
+        transparent 62%
+      ),
+      radial-gradient(
+        90% 80% at 100% 100%,
+        color-mix(in oklab, var(--color-ink-900) 90%, transparent) 0%,
+        transparent 58%
+      );
+    color: var(--color-paper-50);
+  }
+
+  /* Le grain de la scene : une trame de points a 3% qui casse la platitude des
+   * grands aplats sombres, ou les degrades se banderaient sinon en 8 bits. */
+  .deep-scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: radial-gradient(
+      circle at center,
+      color-mix(in oklab, var(--color-paper-50) 26%, transparent) 0.5px,
+      transparent 0.5px
+    );
+    background-size: 3px 3px;
+  }
+
+  /* La barre de nav flottante et les cartes translucides. */
+  .glass {
+    background: color-mix(in oklab, #ffffff 10%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid color-mix(in oklab, #ffffff 18%, transparent);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-light {
+    background: color-mix(in oklab, #ffffff 72%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid color-mix(in oklab, var(--color-ink-950) 8%, transparent);
+    box-shadow: var(--shadow-float);
+  }
+}
+
+@layer utilities {
+  /* La largeur de page.
+   *
+   * Deux relevements successifs, et le second vient d'une mesure, pas d'un
+   * gout. Le premier avait fait passer la borne de 1280 a 1600 px, parce
+   * qu'un contenu de 1280 centre au milieu d'un 27 pouces est la silhouette
+   * d'un site de 2015. Ca ne suffisait pas : mesure au navigateur sur un
+   * ecran de 2560, la page tenait dans 1800 px et laissait DEUX FOIS 380 px
+   * de vide sur les cotes. La barre de qualite de la maison, elle, occupe
+   * 2432 px sur le meme ecran et ne garde que 64 px de gouttiere.
+   *
+   * La borne monte donc a 132rem. Elle ne change rien sous 1500 px environ,
+   * ou c'est la gouttiere qui commande : le portable garde exactement la mise
+   * en page d'avant, et seul le grand ecran cesse de gaspiller ses bords.
+   *
+   * Ce qui empeche les lignes de devenir illisibles n'est PAS la largeur de
+   * page, c'est la mesure du texte : .measure-prose et .measure-wide. Un bloc
+   * de prose qui s'etire sur 2000 px est une faute de composition dans le
+   * composant, pas dans le conteneur.
+   *
+   * Deux echappatoires pour les compositions qui doivent respirer davantage :
+   *   .container-wide  pour les grilles et les galeries,
+   *   .bleed           pour sortir completement du conteneur (pleine largeur). */
+  .container-page {
+    @apply mx-auto w-full;
+    max-width: 132rem;
+    padding-inline: clamp(1.25rem, 3.2vw, 4rem);
+  }
+
+  .container-wide {
+    @apply mx-auto w-full;
+    max-width: 148rem;
+    padding-inline: clamp(1.25rem, 2.4vw, 3rem);
+  }
+
+  /* Sort le bloc de la gouttiere de son conteneur, quelle qu'elle soit. */
+  .bleed {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  /* La colonne de lecture centree, sans le reste des styles de .prose : sert
+   * aux blocs qui bordent un article (chapeau, signature, encart) et qui
+   * doivent s'aligner au caractere pres sur le texte. */
+  .measure-prose {
+    max-inline-size: var(--measure-prose);
+  }
+
+  .measure-wide {
+    max-inline-size: var(--measure-wide);
+  }
+}
+
+/* Garde-fou global : toute animation se coupe si l'utilisateur l'a demande.
+ * Ecrit une fois ici, pour ne jamais dependre de la discipline des composants. */
 @media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

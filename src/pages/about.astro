@@ -1,236 +1,219 @@
 ---
+// About: the quiet PageHero band, the profile paragraph, the experience rail
+// with company chips, and the education + skills cards. All content preserved
+// from the previous page, recomposed in the Reef roles.
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 import ContactCTA from '../components/ContactCTA.astro';
+import PageHero from '../components/PageHero.astro';
+
+const roles = [
+	{
+		title: 'Performance Marketing Specialist',
+		period: 'Aug 2025 - Present',
+		logo: '/assets/logos/hsb-investasi.png',
+		logoAlt: 'HSB Investasi logo',
+		company: 'HSB Investasi',
+		about: 'Digital trading platform for forex and multi-asset investing.',
+		points: [
+			'Manage Google Ads, Meta Ads, TikTok Ads, Apple Search Ads, X Ads, and third-party ad networks.',
+			'Run full-funnel acquisition campaigns, focusing on Install to First Time Deposit conversion performance.',
+			'Manage and optimize 11+ ad network and affiliate channels while improving traffic quality, conversion rates, and FTD contribution.',
+			'Monitor attribution and conversion tracking through AppsFlyer, Google Ads, Apple Search Ads, and other marketing platforms.',
+			'Analyze CAC, CPA, CPL, ROAS, conversion rate, cost per funnel, FTD, deposit value, and trading activity.',
+			'Use SQL and basic Python to analyze marketing performance data and share insights with the team.',
+		],
+	},
+	{
+		title: 'Performance Marketing Specialist',
+		period: 'Dec 2024 - Jul 2025',
+		logo: '/assets/logos/borong.png',
+		logoAlt: 'Borong logo',
+		company: 'Borong Indonesia',
+		about: 'B2B marketplace and SaaS platform connecting brands, suppliers, and businesses.',
+		points: [
+			'Planned, launched, and managed paid campaigns across search, social, display, and marketplace advertising.',
+			'Optimized campaigns toward ROAS, CPA, and other business KPIs.',
+			'Managed Facebook Ads and Google Ads with efficient budget allocation and targeting.',
+			'Analyzed website performance to identify UX and conversion rate optimization opportunities.',
+			'Created performance reports and recommendations for stakeholders.',
+			'A/B tested ad creatives, landing pages, and funnels to improve acquisition efficiency.',
+		],
+	},
+	{
+		title: 'Digital Marketing Specialist, SEO & SEM',
+		period: 'Jan 2024 - Nov 2024',
+		logo: '/assets/logos/yukk.png',
+		logoAlt: 'YUKK Payment Gateway logo',
+		company: 'YUKK Indonesia',
+		about: null,
+		points: [
+			'Improved lead quality by up to 200% in the first month through stronger campaign structure, ad quality, and relevancy.',
+			'Generated up to 500% lead growth in the second month.',
+			'Led projects to generate more event organizers using YUKK payment services.',
+			'Improved website UX, traffic quality, and structure through a website revamp.',
+		],
+	},
+	{
+		title: 'Digital Marketing',
+		period: 'Sep 2021 - Dec 2023',
+		logo: '/assets/logos/peopleshift.png',
+		logoAlt: 'PeopleShift logo',
+		company: 'PeopleShift',
+		about: 'Strategized, planned, and executed SEO, SEM, social media, and content initiatives.',
+		points: [
+			'Received Employee of the Month recognition in January 2022.',
+			'Drove a 90K increase in website traffic over 12 months for Shift Academy through SEO and content improvements.',
+			'Achieved 44.3% Instagram follower growth and a 6,600% reach increase quarter over quarter.',
+			'Managed IDR 150 million in annual ad spend and achieved a 10% average ROI increase over two quarters.',
+		],
+	},
+];
+
+const education = [
+	{
+		title: "International Relations, Bachelor's Degree",
+		meta: 'Muhammadiyah University of Yogyakarta · Aug 2016 - Feb 2021',
+		body: "GPA: 3.34. Wrote a thesis on digital campaigns for one of the largest international NGOs, with a focus on transnational society and community development.",
+	},
+	{
+		title: 'Fullstack Digital Marketing',
+		meta: 'RevoU · May 2023 - Sep 2023',
+		logo: '/assets/logos/revou.ico',
+		logoAlt: 'RevoU logo',
+		body: 'Score: 96/100. Completed 200+ hours of lectures and more than 35 assignments across organic and paid marketing.',
+	},
+];
+
+const certifications = [
+	'Fullstack Digital Marketing, RevoU - Sep 2023',
+	'SEO Specialization Bootcamp, Belajarlagi - Nov 2022',
+	'Google Ads Search Certification, Google - Sep 2023',
+	'Google Analytics Certification, Google - Sep 2023',
+];
+
+const eyebrowClass =
+	'text-muted-foreground flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase';
+const rule = 'bg-primary inline-block h-px w-8 shrink-0';
 ---
 
-<BaseLayout title="Services | Iqbal Abdurachman" description="Performance marketing experience, skills, and education for Iqbal Abdurachman.">
-	<div class="stack gap-20">
-		<main class="wrapper about">
-			<header class="page-hero">
-				<div class="container narrow">
-					<p class="eyebrow">Services</p>
-					<h1>Performance marketing built around growth.</h1>
-					<p class="subtitle">I turn acquisition data into clearer decisions, stronger funnels, and more efficient growth across fintech, B2B SaaS, and e-commerce.</p>
-					<img width="1553" height="873" src="/assets/foto iqbal.jpg" alt="Iqbal Abdurachman" />
+<BaseLayout title="About | Iqbal Abdurachman" description="Performance marketing experience, skills, and education for Iqbal Abdurachman.">
+	<main>
+		<PageHero
+			eyebrow="About"
+			title="Performance marketing built around growth."
+			accentWord="growth"
+			lede="I turn acquisition data into clearer decisions, stronger funnels, and more efficient growth across fintech, B2B SaaS, and e-commerce."
+		>
+			<img
+				src="/assets/foto iqbal.jpg"
+				alt="Iqbal Abdurachman"
+				width="1553"
+				height="873"
+				class="border-border shadow-float mt-6 w-full rounded-panel border object-cover"
+			/>
+		</PageHero>
+
+		{/* --- Profile --- */}
+		<section class="container-page grid gap-6 py-16 md:py-24 lg:grid-cols-[minmax(14rem,0.7fr)_1.3fr] lg:gap-12">
+			<div class="flex flex-col gap-4">
+				<p class={eyebrowClass}><span class={rule} aria-hidden="true"></span>About me</p>
+				<h2 class="font-display text-display-sm max-w-md md:text-display-md">
+					Performance marketing with <span class="accent-script">five</span> years of receipts.
+				</h2>
+			</div>
+			<div class="prose max-w-3xl">
+				<p>
+					Performance Marketing Specialist with 5+ years driving paid acquisition. Strong in
+					SQL-based data analysis and full-funnel conversion optimization, with a track record of
+					improving CPA, CVR, and ROAS across fintech, B2B SaaS, and e-commerce. Experienced
+					managing large ad budgets and turning performance data into growth strategy.
+				</p>
+			</div>
+		</section>
+
+		{/* --- Experience --- */}
+		<section class="bg-surface border-border border-y">
+			<div class="container-page grid gap-6 py-16 md:py-24 lg:grid-cols-[minmax(14rem,0.7fr)_1.3fr] lg:gap-12">
+				<div class="flex flex-col gap-4">
+					<p class={eyebrowClass}><span class={rule} aria-hidden="true"></span>Experience</p>
+					<h2 class="font-display text-display-sm max-w-md md:text-display-md">
+						Better acquisition systems, from <span class="accent-script">click</span> to conversion.
+					</h2>
 				</div>
-			</header>
-
-			<section class="profile-section">
-				<div class="section-heading"><p class="eyebrow">About me</p><h2>Performance Marketing Specialist with 5+ years driving paid acquisition.</h2></div>
-				<div class="content"><p>Strong in SQL-based data analysis and full-funnel conversion optimization, with a track record of improving CPA, CVR, and ROAS across fintech, B2B SaaS, and e-commerce. Experienced managing large ad budgets and turning performance data into growth strategy.</p></div>
-			</section>
-
-			<section class="profile-section">
-				<div class="section-heading"><p class="eyebrow">Working experience</p><h2>Building better acquisition systems from click to conversion.</h2></div>
-				<div class="timeline">
-					<article class="role"><div class="role-heading"><h3>Performance Marketing Specialist</h3><span>Aug 2025 - Present</span></div><div class="company-row"><img src="/assets/logos/hsb-investasi.png" alt="HSB Investasi logo" /><p class="company">HSB Investasi</p></div><p>Digital trading platform for forex and multi-asset investing.</p><ul><li>Manage Google Ads, Meta Ads, TikTok Ads, Apple Search Ads, X Ads, and third-party ad networks.</li><li>Run full-funnel acquisition campaigns, focusing on Install to First Time Deposit conversion performance.</li><li>Manage and optimize 11+ ad network and affiliate channels while improving traffic quality, conversion rates, and FTD contribution.</li><li>Monitor attribution and conversion tracking through AppsFlyer, Google Ads, Apple Search Ads, and other marketing platforms.</li><li>Analyze CAC, CPA, CPL, ROAS, conversion rate, cost per funnel, FTD, deposit value, and trading activity.</li><li>Use SQL and basic Python to analyze marketing performance data and share insights with the team.</li></ul></article>
-					<article class="role"><div class="role-heading"><h3>Performance Marketing Specialist</h3><span>Dec 2024 - Jul 2025</span></div><div class="company-row"><img src="/assets/logos/borong.png" alt="Borong logo" /><p class="company">Borong Indonesia</p></div><p>B2B marketplace and SaaS platform connecting brands, suppliers, and businesses.</p><ul><li>Planned, launched, and managed paid campaigns across search, social, display, and marketplace advertising.</li><li>Optimized campaigns toward ROAS, CPA, and other business KPIs.</li><li>Managed Facebook Ads and Google Ads with efficient budget allocation and targeting.</li><li>Analyzed website performance to identify UX and conversion rate optimization opportunities.</li><li>Created performance reports and recommendations for stakeholders.</li><li>A/B tested ad creatives, landing pages, and funnels to improve acquisition efficiency.</li></ul></article>
-					<article class="role"><div class="role-heading"><h3>Digital Marketing Specialist, SEO &amp; SEM</h3><span>Jan 2024 - Nov 2024</span></div><div class="company-row"><img src="/assets/logos/yukk.png" alt="YUKK Payment Gateway logo" /><p class="company">YUKK Indonesia</p></div><ul><li>Improved lead quality by up to 200% in the first month through stronger campaign structure, ad quality, and relevancy.</li><li>Generated up to 500% lead growth in the second month.</li><li>Led projects to generate more event organizers using YUKK payment services.</li><li>Improved website UX, traffic quality, and structure through a website revamp.</li></ul></article>
-					<article class="role"><div class="role-heading"><h3>Digital Marketing</h3><span>Sep 2021 - Dec 2023</span></div><div class="company-row"><img src="/assets/logos/peopleshift.png" alt="PeopleShift logo" /><p class="company">PeopleShift</p></div><p>Strategized, planned, and executed SEO, SEM, social media, and content initiatives.</p><ul><li>Received Employee of the Month recognition in January 2022.</li><li>Drove a 90K increase in website traffic over 12 months for Shift Academy through SEO and content improvements.</li><li>Achieved 44.3% Instagram follower growth and a 6,600% reach increase quarter over quarter.</li><li>Managed IDR 150 million in annual ad spend and achieved a 10% average ROI increase over two quarters.</li></ul></article>
+				<div class="flex flex-col">
+					{
+						roles.map((role) => (
+							<article class="border-border border-t py-8 first:pt-0">
+								<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+									<h3 class="text-xl font-bold tracking-tight">{role.title}</h3>
+									<span class="text-primary-text text-sm font-bold whitespace-nowrap">{role.period}</span>
+								</div>
+								<div class="mt-4 flex items-center gap-3">
+									<span class="bg-card border-border grid h-10 w-20 shrink-0 place-items-center overflow-hidden rounded-[0.625rem] border p-1.5">
+										<img src={role.logo} alt={role.logoAlt} class="max-h-full max-w-full object-contain" loading="lazy" />
+									</span>
+									<div>
+										<p class="text-primary-text text-sm font-bold">{role.company}</p>
+										{role.about && <p class="text-muted-foreground mt-0.5 text-sm">{role.about}</p>}
+									</div>
+								</div>
+								<ul class="text-muted-foreground mt-5 flex list-disc flex-col gap-2 pl-5 marker:text-primary">
+									{role.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</article>
+						))
+					}
 				</div>
-			</section>
+			</div>
+		</section>
 
-			<section class="profile-section two-column">
-				<div><p class="eyebrow">Education</p><h2>Learning with intent.</h2><div class="education-item"><h3>International Relations, Bachelor's Degree</h3><p class="company">Muhammadiyah University of Yogyakarta · Aug 2016 - Feb 2021</p><p>GPA: 3.34. Wrote a thesis on digital campaigns for one of the largest international NGOs, with a focus on transnational society and community development.</p></div><div class="education-item"><div class="company-row"><img src="/assets/logos/revou.ico" alt="RevoU logo" /><h3>Fullstack Digital Marketing</h3></div><p class="company">RevoU · May 2023 - Sep 2023</p><p>Score: 96/100. Completed 200+ hours of lectures and more than 35 assignments across organic and paid marketing.</p></div></div>
-				<div><p class="eyebrow">Additional information</p><h2>Tools, skills, and credentials.</h2><div class="education-item"><h3>Skills</h3><p>Social media management, Meta Ads, Google Ads, Apple Search Ads, TikTok Ads, X Ads, SQL, analytics, market research, content marketing, Adobe Photoshop, and WordPress development.</p></div><div class="education-item"><h3>Certifications</h3><ul><li>Fullstack Digital Marketing, RevoU - Sep 2023</li><li>SEO Specialization Bootcamp, Belajarlagi - Nov 2022</li><li>Google Ads Search Certification, Google - Sep 2023</li><li>Google Analytics Certification, Google - Sep 2023</li></ul></div></div>
-			</section>
-		</main>
+		{/* --- Education + skills --- */}
+		<section class="container-page grid gap-4 py-16 md:py-24 lg:grid-cols-2 lg:gap-6">
+			<div class="bg-card border-border shadow-float flex flex-col rounded-card border p-8">
+				<p class={eyebrowClass}><span class={rule} aria-hidden="true"></span>Education</p>
+				<h2 class="font-display mt-4 text-2xl font-bold tracking-tight">Learning with intent.</h2>
+				<div class="flex flex-col">
+					{
+						education.map((item) => (
+							<article class="border-border mt-6 border-t pt-6">
+								{item.logo && (
+									<span class="bg-surface border-border mb-3 grid h-10 w-20 place-items-center overflow-hidden rounded-[0.625rem] border p-1.5">
+										<img src={item.logo} alt={item.logoAlt} class="max-h-full max-w-full object-contain" loading="lazy" />
+									</span>
+								)}
+								<h3 class="text-lg font-bold tracking-tight">{item.title}</h3>
+								<p class="text-primary-text mt-1 text-sm font-bold">{item.meta}</p>
+								<p class="text-muted-foreground mt-3 text-sm leading-relaxed">{item.body}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
 
-		<ContactCTA />
-	</div>
+			<div class="bg-card border-border shadow-float flex flex-col rounded-card border p-8">
+				<p class={eyebrowClass}><span class={rule} aria-hidden="true"></span>Additional information</p>
+				<h2 class="font-display mt-4 text-2xl font-bold tracking-tight">Tools, skills, and credentials.</h2>
+				<div class="border-border mt-6 border-t pt-6">
+					<h3 class="text-lg font-bold tracking-tight">Skills</h3>
+					<p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+						Social media management, Meta Ads, Google Ads, Apple Search Ads, TikTok Ads, X Ads,
+						SQL, analytics, market research, content marketing, Adobe Photoshop, and WordPress
+						development.
+					</p>
+				</div>
+				<div class="border-border mt-6 border-t pt-6">
+					<h3 class="text-lg font-bold tracking-tight">Certifications</h3>
+					<ul class="text-muted-foreground mt-3 flex list-disc flex-col gap-2 pl-5 text-sm marker:text-primary">
+						{certifications.map((certification) => (
+							<li>{certification}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<ContactCTA />
 </BaseLayout>
-
-<style>
-	.about {
-		display: flex;
-		flex-direction: column;
-		gap: 3.5rem;
-	}
-
-	.page-hero {
-		position: relative;
-		width: 100vw;
-		left: 50%;
-		margin-left: 0;
-		transform: translateX(-50%);
-		padding: 5rem 1rem 4rem;
-		background: var(--blue-soft);
-		text-align: center;
-	}
-
-	.narrow {
-		max-width: 48rem;
-		margin-inline: auto;
-	}
-
-	.eyebrow {
-		color: var(--blue);
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.page-hero h1 {
-		margin-top: 0.75rem;
-	}
-
-	.subtitle {
-		margin-top: 1.25rem;
-		color: var(--muted);
-		font-size: 1.1rem;
-	}
-
-	.profile-section {
-		display: grid;
-		grid-column: 1 / -1;
-		grid-template-columns: minmax(14rem, 0.7fr) 1.3fr;
-		gap: 3rem;
-		color: var(--muted);
-	}
-
-	.profile-section .section-heading h2,
-	.two-column h2 {
-		margin-top: 0.7rem;
-		font-size: var(--text-2xl);
-	}
-
-	.profile-section .content {
-		max-width: 48rem;
-	}
-
-	.timeline {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.role {
-		border-top: 1px solid var(--line);
-		padding-top: 1.5rem;
-	}
-
-	.role-heading {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 1rem;
-	}
-
-	.role h3,
-	.education-item h3 {
-		color: var(--ink);
-		font-size: 1.2rem;
-	}
-
-	.role-heading span {
-		color: var(--blue);
-		font-size: 0.8rem;
-		font-weight: 700;
-		white-space: nowrap;
-	}
-
-	.company {
-		margin-top: 0.35rem;
-		color: var(--blue);
-		font-weight: 700;
-	}
-
-	.company-row {
-		display: flex;
-		align-items: center;
-		gap: 0.65rem;
-		margin-top: 0.7rem;
-	}
-
-	.company-row .company {
-		margin-top: 0;
-	}
-
-	.company-row img,
-	.company-mark {
-		display: grid;
-		width: 4.5rem;
-		height: 2rem;
-		flex: 0 0 4.5rem;
-		place-items: center;
-		margin: 0;
-		border: 1px solid var(--line);
-		border-radius: 0.45rem;
-		object-fit: contain;
-		background: white;
-	}
-
-	.company-mark {
-		color: var(--blue);
-		font-family: var(--font-heading);
-		font-weight: 800;
-	}
-
-	.role > p:not(.company),
-	.education-item p {
-		margin-top: 0.6rem;
-	}
-
-	.role ul,
-	.education-item ul {
-		display: grid;
-		gap: 0.45rem;
-		margin-top: 1rem;
-		padding-left: 1.15rem;
-	}
-
-	.two-column {
-		grid-template-columns: 1fr 1fr;
-	}
-
-	.education-item + .education-item {
-		margin-top: 2rem;
-		border-top: 1px solid var(--line);
-		padding-top: 1.5rem;
-	}
-
-	.page-hero img {
-		margin-top: 1.5rem;
-		width: 100%;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	.content {
-		max-width: 48rem;
-		color: var(--muted);
-	}
-
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
-
-	@media (max-width: 50em) {
-		.profile-section,
-		.two-column {
-			display: block;
-		}
-
-		.profile-section .content,
-		.timeline,
-		.two-column > div + div {
-			margin-top: 2rem;
-		}
-	}
-
-	@media (max-width: 40em) {
-		.role-heading {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 0.35rem;
-		}
-	}
-</style>

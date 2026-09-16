@@ -1,5 +1,11 @@
 ---
+// Head layer: Reef fonts (Space Grotesk for display, Instrument Sans for body)
+// loaded via Fontsource, plus ThemeInit so the `.dark` class lands on <html>
+// before first paint. No external font CDN, no theme flash.
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/instrument-sans';
 import '../styles/global.css';
+import ThemeInit from './ui/theme-toggle/ThemeInit.astro';
 
 interface Props {
 	title?: string | undefined;
@@ -7,8 +13,8 @@ interface Props {
 }
 
 const {
-	title = 'Liburan di Rumah: Portfolio Website',
-	description = 'The portfolio site of Iqbal Abdurachman',
+	title = 'Iqbal Abdurachman | Digital builder & performance marketer',
+	description = 'Performance marketing and thoughtful digital experiences by Iqbal Abdurachman.',
 } = Astro.props;
 ---
 
@@ -17,31 +23,8 @@ const {
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
-	rel="stylesheet"
-/>
-<script is:inline>
-	// This code is inlined in the head to make dark mode instant & blocking.
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
-
-	if (typeof localStorage !== 'undefined') {
-		// Watch the document element and persist user preference when it changes.
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('theme-dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
-</script>
+<ThemeInit />

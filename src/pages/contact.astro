@@ -1,51 +1,101 @@
 ---
+// Contact: information cards on the left, the inquiry form in a white card on
+// the right. The form keeps posting to /api/leads; only the dressing changed.
+import { Icon } from '../components/svg/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const cardClass =
+	'bg-card border-border shadow-float focus-visible:ring-ring hover:shadow-lift grid grid-cols-[2.75rem_1fr] items-center gap-4 rounded-card border p-4 transition-[box-shadow] duration-200';
+const iconCircle =
+	'border-border text-primary-text grid size-10 place-items-center rounded-full border';
+const fieldLabel = 'grid gap-1.5 text-sm font-semibold';
+const field =
+	'block w-full rounded-2xl border border-border bg-surface px-4 py-3 text-[0.95rem] caret-primary placeholder:text-muted-foreground/70 transition-[border-color] duration-200 hover:border-foreground/25 focus:border-primary focus:outline-none';
 ---
 
 <BaseLayout title="Contact | Iqbal Abdurachman" description="Start a conversation about your next digital project.">
-	<section class="contact-hero"><div class="container contact-grid"><div><p class="eyebrow">Contact</p><h1>Let’s talk about what comes next.</h1><p class="subtitle">Tell me what you’re building, where it feels stuck, and what a useful outcome looks like.</p><div class="contact-cards"><a href="mailto:hello@example.com"><span>✉</span><div><small>Send an email</small><strong>hello@example.com</strong></div></a><a href="https://linkedin.com/in/iqbard26"><span>↗</span><div><small>Connect on LinkedIn</small><strong>linkedin.com/in/iqbard26</strong></div></a><div><span>⌖</span><div><small>Based in</small><strong>Jakarta, Indonesia</strong></div></div></div></div><div class="form-card"><h2>Tell me a little more.</h2><p>Your inquiry will appear in the Leads section of Decap CMS.</p><form id="lead-form"><label for="name">Name<input id="name" name="name" autocomplete="name" required placeholder="Your name" /></label><label for="email">Email<input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" /></label><label for="message">What are you working on?<textarea id="message" name="message" rows="5" required placeholder="A few words about the project"></textarea></label><label class="website-field" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label><button class="button button-primary" type="submit">Send inquiry <span aria-hidden="true">↗</span></button><p class="form-status" id="form-status" role="status" aria-live="polite"></p></form></div></div></section>
-</BaseLayout>
+	<main>
+		<PageHero
+			eyebrow="Contact"
+			title="Let's talk about what comes next."
+			accentWord="next"
+			lede="Tell me what you're building, where it feels stuck, and what a useful outcome looks like."
+		/>
 
-<style>
-	.contact-hero { padding: 5rem 0 7rem; background: var(--blue-soft); }
-	.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-	.contact-hero h1 { max-width: 11ch; margin-top: 0.75rem; }
-	.subtitle { max-width: 35rem; margin-top: 1.25rem; color: var(--muted); font-size: 1.1rem; }
-	.contact-cards { display: grid; gap: 0.75rem; margin-top: 2.5rem; }
-	.contact-cards a, .contact-cards > div { display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.85rem; align-items: center; border-radius: 0.65rem; padding: 1rem; color: var(--ink); background: white; text-decoration: none; }
-	.contact-cards a:hover strong { color: var(--blue); }
-	.contact-cards span { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--blue); }
-	.contact-cards small, .contact-cards strong { display: block; }
-	.contact-cards small { color: var(--muted); font-size: 0.75rem; }
-	.contact-cards strong { margin-top: 0.15rem; font-size: 1rem; }
-	.form-card { border-radius: 0.9rem; padding: 2rem; background: white; box-shadow: var(--shadow-md); }
-	.form-card h2 { font-size: 1.7rem; }
-	.form-card > p { margin-top: 0.5rem; color: var(--muted); }
-	form { display: grid; gap: 1rem; margin-top: 1.75rem; }
-	label { display: grid; gap: 0.4rem; color: var(--ink); font-size: 0.85rem; font-weight: 600; }
-	input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 0.4rem; padding: 0.8rem; color: var(--ink); background: var(--surface-soft); font: inherit; }
-	input:focus, textarea:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
-	.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 0; border-radius: 0.45rem; padding: 0.85rem 1rem; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
-	.button-primary { color: white; background: var(--blue); }
-	.website-field { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
-	.form-status { min-height: 1.5rem; color: var(--muted); font-size: 0.85rem; }
-	.form-status.success { color: #167447; }
-	.form-status.error { color: #b42318; }
-	@media (max-width: 55em) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
-</style>
+		<section class="container-page grid gap-10 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
+			<div class="flex flex-col gap-3">
+				<a href="mailto:hello@example.com" class={cardClass}>
+					<span class={iconCircle}><Icon name="mail" size={18} /></span>
+					<span>
+						<small class="text-muted-foreground block text-xs">Send an email</small>
+						<strong class="mt-0.5 block font-semibold">hello@example.com</strong>
+					</span>
+				</a>
+				<a href="https://linkedin.com/in/iqbard26" rel="noopener noreferrer" class={cardClass}>
+					<span class={iconCircle}><Icon name="link" size={18} /></span>
+					<span>
+						<small class="text-muted-foreground block text-xs">Connect on LinkedIn</small>
+						<strong class="mt-0.5 block font-semibold">linkedin.com/in/iqbard26</strong>
+					</span>
+				</a>
+				<div class={cardClass}>
+					<span class={iconCircle}><Icon name="globe" size={18} /></span>
+					<span>
+						<small class="text-muted-foreground block text-xs">Based in</small>
+						<strong class="mt-0.5 block font-semibold">Jakarta, Indonesia</strong>
+					</span>
+				</div>
+			</div>
+
+			<div class="bg-card border-border shadow-float rounded-panel border p-6 sm:p-8">
+				<h2 class="font-display text-3xl font-bold tracking-tight">Tell me a little more.</h2>
+				<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+					Your inquiry will appear in the Leads section of Decap CMS.
+				</p>
+				<form id="lead-form" class="mt-6 grid gap-4">
+					<label class={fieldLabel} for="name">
+						Name
+						<input id="name" name="name" autocomplete="name" required placeholder="Your name" class={field} />
+					</label>
+					<label class={fieldLabel} for="email">
+						Email
+						<input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" class={field} />
+					</label>
+					<label class={fieldLabel} for="message">
+						What are you working on?
+						<textarea id="message" name="message" rows="5" required placeholder="A few words about the project" class={field}></textarea>
+					</label>
+					<label class="sr-only" aria-hidden="true">
+						Website
+						<input name="website" tabindex="-1" autocomplete="off" />
+					</label>
+					<button
+						type="submit"
+						class="bg-primary text-primary-foreground shadow-float hover:shadow-lift font-display inline-flex h-13 cursor-pointer items-center justify-center gap-2 rounded-pill px-6 text-[0.95rem] font-bold transition-[transform,box-shadow,background-color] duration-200 hover:-translate-y-0.5 active:scale-[0.97] active:duration-[90ms] disabled:pointer-events-none disabled:opacity-50"
+					>
+						<span data-label>Send inquiry</span>
+						<Icon name="send" size={16} />
+					</button>
+					<p class="text-muted-foreground min-h-6 text-sm" id="form-status" role="status" aria-live="polite"></p>
+				</form>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
 
 <script>
 	const form = document.querySelector<HTMLFormElement>('#lead-form');
 	const status = document.querySelector<HTMLElement>('#form-status');
+	const label = form?.querySelector<HTMLElement>('[data-label]');
 
 	form?.addEventListener('submit', async (event) => {
 		event.preventDefault();
 		const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-		if (!button || !status) return;
+		if (!button || !status || !label) return;
 
 		button.disabled = true;
-		button.textContent = 'Sending...';
-		status.className = 'form-status';
+		label.textContent = 'Sending...';
 		status.textContent = '';
 
 		try {
@@ -58,14 +108,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			if (!response.ok) throw new Error(result.error || 'Unable to send your inquiry.');
 
 			form.reset();
-			status.className = 'form-status success';
 			status.textContent = 'Thanks. Your inquiry has been received.';
 		} catch (error) {
-			status.className = 'form-status error';
 			status.textContent = error instanceof Error ? error.message : 'Unable to send your inquiry.';
 		} finally {
 			button.disabled = false;
-			button.innerHTML = 'Send inquiry <span aria-hidden="true">↗</span>';
+			label.textContent = 'Send inquiry';
 		}
 	});
 </script>

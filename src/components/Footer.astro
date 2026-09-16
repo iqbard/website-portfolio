@@ -1,31 +1,122 @@
 ---
+// Footer, after the Reef pattern: the page closes on the paper tone instead of
+// a dark slab. Brand column with tagline, three quiet link columns, then a
+// bottom row with the legal line, social circles and a back-to-top pill.
+import { Icon } from './svg/icons';
+
 const currentYear = new Date().getFullYear();
+
+const columns = [
+	{
+		title: 'Site',
+		links: [
+			{ label: 'Work', href: '/work/' },
+			{ label: 'About', href: '/about/' },
+			{ label: 'Notes', href: '/blog/' },
+			{ label: 'Contact', href: '/contact/' },
+		],
+	},
+	{
+		title: 'Elsewhere',
+		links: [
+			{ label: 'LinkedIn', href: 'https://linkedin.com/in/iqbard26' },
+			{ label: 'GitHub', href: 'https://github.com/iqbard' },
+		],
+	},
+	{
+		title: 'Start here',
+		links: [
+			{ label: 'Selected work', href: '/work/' },
+			{ label: 'Services', href: '/about/' },
+			{ label: 'Say hello', href: '/contact/' },
+		],
+	},
+];
+
+const columnLink =
+	'text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center text-[0.95rem] transition-colors duration-150';
 ---
 
-<footer>
-	<div class="container footer-inner">
-		<div>
-			<a href="/" class="footer-logo">Iqbal Abdurachman</a>
-			<p>Performance marketing, thoughtful digital experiences, and websites that move people to act.</p>
+<footer class="bg-surface border-border border-t" data-slot="footer">
+	<div class="container-page py-16 md:py-20">
+		<div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
+			<div class="flex flex-col gap-6 lg:col-span-4">
+				<a href="/" class="flex min-h-11 items-center gap-2" aria-label="Iqbal Abdurachman home">
+					<Icon name="wave" size={22} class="text-primary" />
+					<span class="font-display text-xl font-semibold tracking-tight">Iqbal Abdurachman</span>
+				</a>
+				<p class="text-muted-foreground measure-prose text-[0.95rem] leading-relaxed">
+					Performance marketing, thoughtful digital experiences, and websites that move people to
+					act. Based in Jakarta, working with teams across time zones.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8 lg:col-start-5">
+				{
+					columns.map((column) => (
+						<div class="flex flex-col gap-2">
+							<h2 class="text-muted-foreground font-sans text-xs font-medium tracking-[0.18em] uppercase">
+								{column.title}
+							</h2>
+							<ul class="flex flex-col">
+								{column.links.map((link) => (
+									<li>
+										<a
+											href={link.href}
+											class={columnLink}
+											rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+										>
+											{link.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
 		</div>
-		<div class="footer-links">
-			<a href="/work/">Work</a>
-			<a href="/about/">About</a>
-			<a href="https://linkedin.com/in/iqbard26">LinkedIn</a>
-			<a href="https://github.com/iqbard">GitHub</a>
+
+		<div class="border-border mt-14 flex flex-col gap-6 border-t pt-8 sm:flex-row sm:items-end sm:justify-between">
+			<div class="text-muted-foreground flex flex-col gap-1 text-sm">
+				<p>&copy; {currentYear} Iqbal Abdurachman. All rights reserved.</p>
+				<p>
+					Built with
+					<a href="https://astro.build" class="text-foreground font-semibold hover:underline">Astro</a>
+					and a soft spot for the sea.
+				</p>
+			</div>
+
+			<ul class="flex flex-wrap items-center gap-2">
+				<li>
+					<a
+						href="mailto:hello@example.com"
+						aria-label="Send an email"
+						class="border-border text-muted-foreground hover:bg-muted hover:text-foreground rounded-pill grid size-11 place-items-center border transition-colors duration-150"
+					>
+						<Icon name="mail" size={17} />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://linkedin.com/in/iqbard26"
+						aria-label="Connect on LinkedIn"
+						rel="noopener noreferrer"
+						class="border-border text-muted-foreground hover:bg-muted hover:text-foreground rounded-pill grid size-11 place-items-center border transition-colors duration-150"
+					>
+						<Icon name="link" size={17} />
+					</a>
+				</li>
+				<li>
+					<a
+						href="#content"
+						class="border-border text-muted-foreground hover:bg-muted hover:text-foreground rounded-pill inline-flex min-h-11 items-center gap-2 border px-4 text-sm transition-colors duration-150"
+					>
+						<Icon name="chevron-up" size={16} />
+						Back to top
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
-	<div class="container footer-bottom"><span>© {currentYear} Iqbal Abdurachman</span><span>Built with Astro</span></div>
 </footer>
-
-<style>
-	footer { padding: 4rem 0 1.5rem; color: var(--muted); background: var(--surface-soft); }
-	.footer-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; padding-bottom: 3rem; }
-	.footer-logo { color: var(--ink); font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; text-decoration: none; }
-	footer p { max-width: 34rem; margin-top: 0.75rem; }
-	.footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-content: start; }
-	.footer-links a { text-decoration: none; }
-	.footer-links a:hover { color: var(--blue); }
-	.footer-bottom { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 1.25rem; font-size: 0.8rem; }
-	@media (max-width: 45em) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 0.4rem; } }
-</style>

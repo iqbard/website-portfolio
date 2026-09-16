@@ -1,0 +1,76 @@
+---
+// src/components/ui/dialog/DialogClose.astro - bouton de fermeture du dialog : croix 44px calee en haut a droite par defaut, ou pilule en flux si un contenu est passe en slot.
+// <DialogClose /> rend la croix ; <DialogClose>Cancel</DialogClose> rend un
+// bouton secondaire pour le DialogFooter. Ferme via data-dialog-close.
+import type { HTMLAttributes } from "astro/types";
+import type { VariantProps } from "tailwind-variants";
+import { getLocale, useTranslations } from "@i18n";
+import { button } from "../button";
+
+type ButtonVariants = VariantProps<typeof button>;
+
+type Props = HTMLAttributes<"button"> & {
+  label?: string;
+  variant?: ButtonVariants["variant"];
+  size?: ButtonVariants["size"];
+};
+
+const iconOnly = !Astro.slots.has("default");
+
+// Le libelle par defaut vient du dictionnaire, et c'est un correctif, pas un
+// raffinement : il etait ecrit "Close dialog" en dur dans ce fichier. La croix
+// de fermeture du menu mobile portait donc ce libelle anglais sur TOUTES les
+// pages francaises du theme, y compris celles qui n'ont pas un mot d'anglais
+// ailleurs. Un utilisateur de lecteur d'ecran en francais entendait une phrase
+// anglaise sur le seul bouton qui lui permet de ressortir du menu.
+//
+// Une primitive d'interface qui porte du texte visible ou annonce porte de la
+// COPIE, et la copie vit dans le dictionnaire. La prop label reste disponible
+// pour un libelle plus precis que "Fermer" au point d'appel.
+const locale = getLocale(Astro);
+const t = useTranslations(locale);
+
+const {
+  label = t.common.close,
+  variant = iconOnly ? "ghost" : "outline",
+  size = iconOnly ? "icon" : "md",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const classes = button({
+  variant,
+  size,
+  class: [
+    iconOnly && "text-muted-foreground hover:text-foreground absolute top-4 right-4",
+    className,
+  ],
+});
+---
+
+<button
+  type="button"
+  class={classes}
+  data-slot="dialog-close"
+  data-dialog-close
+  aria-label={iconOnly ? label : undefined}
+  {...rest}
+>
+  {
+    iconOnly ? (
+      <svg
+        class="size-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    ) : (
+      <slot />
+    )
+  }
+</button>

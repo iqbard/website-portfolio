@@ -1,0 +1,58 @@
+---
+// Compact hero band for inner pages, after the Reef PageHero: a quiet surface
+// band with the uppercase eyebrow, the display title carrying the accent word
+// and its wave, and a short lede. pt clears the floating navbar.
+interface Props {
+	eyebrow?: string;
+	title: string;
+	/** The one word that turns turquoise and carries the wave (.accent-script). */
+	accentWord?: string;
+	lede?: string;
+	align?: 'left' | 'center';
+}
+
+const { eyebrow, title, accentWord, lede, align = 'left' } = Astro.props;
+
+// Split the title around the accent word, case-insensitively.
+const accent = accentWord?.trim() ?? '';
+const at = accent ? title.toLowerCase().indexOf(accent.toLowerCase()) : -1;
+const before = at >= 0 ? title.slice(0, at) : title;
+const word = at >= 0 ? title.slice(at, at + accent.length) : '';
+const after = at >= 0 ? title.slice(at + accent.length) : '';
+---
+
+<div class="bg-surface border-border relative isolate overflow-hidden border-b">
+	<div
+		class:list={[
+			'container-page relative z-10 flex flex-col gap-5 pt-32 pb-12 md:pt-40 md:pb-16',
+			align === 'center' && 'items-center text-center',
+		]}
+	>
+		{
+			eyebrow && (
+				<p
+					class:list={[
+						'text-muted-foreground flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase',
+						align === 'center' && 'justify-center',
+					]}
+				>
+					<span class="bg-primary inline-block h-px w-8 shrink-0" aria-hidden="true" />
+					{eyebrow}
+				</p>
+			)
+		}
+		<h1 class="font-display text-display-sm max-w-4xl sm:text-display-md">
+			{word ? (
+				<Fragment>
+					{before}
+					<span class="accent-script">{word}</span>
+					{after}
+				</Fragment>
+			) : (
+				title
+			)}
+		</h1>
+		{lede && <p class="text-muted-foreground measure-wide text-lg leading-relaxed">{lede}</p>}
+		<slot />
+	</div>
+</div>

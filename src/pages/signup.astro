@@ -1,28 +1,71 @@
 ---
+// Sign up: the same split screen as login, with the second art panel.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Button } from '../components/ui/button';
+import { Icon } from '../components/svg/icons';
+
+const fieldLabel = 'grid gap-1.5 text-sm font-semibold';
+const field =
+	'block w-full rounded-2xl border border-border bg-surface px-4 py-3 text-[0.95rem] caret-primary placeholder:text-muted-foreground/70 transition-[border-color] duration-200 hover:border-foreground/25 focus:border-primary focus:outline-none';
 ---
 
-<BaseLayout title="Sign Up | Iqbal Abdurachman" description="Template sign up screen.">
-	<section class="auth-page"><div class="auth-grid"><div class="auth-form"><a class="auth-logo" href="/">← Back home</a><div class="auth-heading"><p class="eyebrow">Get started</p><h1>Create your account.</h1><p>This placeholder screen keeps the template ready for a future membership, course, or client workspace flow.</p></div><form><label>Name<input type="text" placeholder="Your name" /></label><label>Email<input type="email" placeholder="you@example.com" /></label><label>Password<input type="password" placeholder="Create a password" /></label><button class="button" type="submit">Create account ↗</button></form><p class="auth-switch">Already have an account? <a href="/login/">Log in</a></p></div><div class="auth-art"><span class="art-number">02</span><h2>Build something people can believe in.</h2><p>Replace this panel with onboarding content once the account experience has a defined purpose.</p></div></div></section>
-</BaseLayout>
+<BaseLayout title="Sign up | Iqbal Abdurachman" description="Create an account screen.">
+	<main class="grid min-h-svh lg:grid-cols-2">
+		<div class="container-page flex flex-col justify-center py-16 lg:px-16">
+			<div class="w-full max-w-md self-center">
+				<a href="/" class="text-primary-text inline-flex min-h-11 items-center gap-1.5 text-sm font-bold">
+					<Icon name="chevron-left" size={15} />
+					Back home
+				</a>
+				<div class="mt-8 flex flex-col gap-4">
+					<p class="text-muted-foreground flex items-center gap-3 text-xs font-medium tracking-[0.18em] uppercase">
+						<span class="bg-primary inline-block h-px w-8 shrink-0" aria-hidden="true"></span>
+						Get started
+					</p>
+					<h1 class="font-display text-display-sm md:text-display-md">
+						Create your <span class="accent-script">account</span>.
+					</h1>
+					<p class="text-muted-foreground leading-relaxed">
+						This placeholder screen keeps the template ready for a future membership, course, or
+						client workspace flow.
+					</p>
+				</div>
+				<form class="mt-8 grid gap-4">
+					<label class={fieldLabel}>
+						Name
+						<input type="text" placeholder="Your name" class={field} />
+					</label>
+					<label class={fieldLabel}>
+						Email
+						<input type="email" placeholder="you@example.com" class={field} />
+					</label>
+					<label class={fieldLabel}>
+						Password
+						<input type="password" placeholder="Create a password" class={field} />
+					</label>
+					<Button type="submit" variant="primary" size="lg" class="mt-2 w-full">
+						Create account
+						<Icon name="arrow-right" size={16} />
+					</Button>
+				</form>
+				<p class="text-muted-foreground mt-6 text-sm">
+					Already have an account?
+					<a href="/login/" class="text-primary-text font-bold">Log in</a>
+				</p>
+			</div>
+		</div>
 
-<style>
-	.auth-page { min-height: 75vh; background: var(--surface-soft); }
-	.auth-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 75vh; }
-	.auth-form { display: flex; flex-direction: column; justify-content: center; width: min(100% - 3rem, 28rem); margin-inline: auto; padding: 3rem 0; }
-	.auth-logo { color: var(--blue); font-weight: 700; text-decoration: none; }
-	.auth-heading { margin-top: 5rem; }
-	.auth-heading h1 { margin-top: 0.75rem; }
-	.auth-heading p:last-child { margin-top: 0.8rem; color: var(--muted); }
-	form { display: grid; gap: 1rem; margin-top: 2rem; }
-	label { display: grid; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; }
-	input { border: 1px solid var(--line); border-radius: 0.4rem; padding: 0.85rem; font: inherit; }
-	.button { border: 0; border-radius: 0.45rem; padding: 0.85rem; color: white; background: var(--blue); font: inherit; font-weight: 700; cursor: pointer; }
-	.auth-switch { margin-top: 1.5rem; color: var(--muted); font-size: 0.9rem; }
-	.auth-switch a { color: var(--blue); font-weight: 700; }
-	.auth-art { display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem; color: white; background: var(--blue-dark); }
-	.art-number { font-family: var(--font-heading); font-weight: 800; }
-	.auth-art h2 { max-width: 12ch; margin-top: auto; color: white; }
-	.auth-art p { max-width: 28rem; margin-top: 1rem; color: #b9c8e9; }
-	@media (max-width: 55em) { .auth-grid { grid-template-columns: 1fr; } .auth-art { min-height: 20rem; padding: 2rem; } .auth-art h2 { margin-top: 3rem; } }
-</style>
+		<aside class="deep-scene relative hidden isolate overflow-hidden lg:flex lg:flex-col lg:justify-end">
+			<div class="relative z-10 flex flex-col gap-4 p-16">
+				<span class="font-display text-primary text-lg font-bold">02</span>
+				<h2 class="font-display max-w-md text-3xl font-bold tracking-tight text-white">
+					Build something people can believe in.
+				</h2>
+				<p class="max-w-sm leading-relaxed text-white/75">
+					Replace this panel with onboarding content once the account experience has a defined
+					purpose.
+				</p>
+			</div>
+		</aside>
+	</main>
+</BaseLayout>
