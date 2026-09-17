@@ -5,10 +5,25 @@ export const collections = {
 		type: 'content',
 		schema: z.object({
 			title: z.string(),
-			category: z.enum(['Website Building', 'Paid Media', 'Ecommerce Management']),
+			category: z.enum([
+				'Website Building',
+				'Paid Media',
+				'Ecommerce Management',
+				'Social Media',
+				'SEO & Content',
+			]),
 			description: z.string(),
 			publishDate: z.coerce.date(),
 			tags: z.array(z.string()),
+			highlights: z
+				.array(
+					z.object({
+						value: z.string(),
+						label: z.string(),
+						detail: z.string().optional(),
+					}),
+				)
+				.optional(),
 			img: z.string(),
 			img_alt: z.string().optional(),
 		}),

@@ -15,6 +15,12 @@ description: >
 tags:
   - UI UX Design
   - Wordpress Development
+highlights:
+  - value: "+60%"
+    label: Automated enrollments
+    detail: First semester post-launch
+  - value: "40 hrs"
+    label: Admin time saved weekly
 ---
 Company Name: Shift Academy
 

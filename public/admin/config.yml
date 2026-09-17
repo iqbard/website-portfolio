@@ -31,11 +31,22 @@ collections:
           - "Website Building"
           - "Paid Media"
           - "Ecommerce Management"
+          - "Social Media"
+          - "SEO & Content"
       - {label: "Publish Date", name: "publishDate", widget: "datetime"}
       - {label: "Image", name: "img", widget: "image", required: false}
       - {label: "Image alt", name: "img_alt", widget: "string", required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
+      - label: "Highlights"
+        name: "highlights"
+        widget: "list"
+        required: false
+        collapsed: true
+        fields:
+          - {label: "Value", name: "value", widget: "string", hint: "The big number, e.g. IDR 501M or +130%"}
+          - {label: "Label", name: "label", widget: "string", hint: "What the number measures, e.g. Total managed spend"}
+          - {label: "Detail", name: "detail", widget: "string", required: false, hint: "Optional context line"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "leads"
     label: "Leads"

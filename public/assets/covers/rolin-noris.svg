@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Artist Release Support — Rolin Noris · Indie Folk Musician">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <circle cx="1040" cy="110" r="280" fill="#ffffff" opacity="0.08"/>
+  <circle cx="130" cy="640" r="210" fill="#000000" opacity="0.14"/>
+  <circle cx="980" cy="560" r="90" fill="#ffffff" opacity="0.06"/>
+  <text x="78" y="330" font-family="'Space Grotesk','Segoe UI',Arial,sans-serif" font-size="190" font-weight="700" letter-spacing="4" fill="#ffffff" opacity="0.95">RN</text>
+  <text x="84" y="432" font-family="'Instrument Sans','Segoe UI',Arial,sans-serif" font-size="54" font-weight="600" fill="#ffffff">Artist Release Support</text>
+  <text x="86" y="500" font-family="'Instrument Sans','Segoe UI',Arial,sans-serif" font-size="30" fill="#ffffff" opacity="0.78">Rolin Noris · Indie Folk Musician</text>
+</svg>

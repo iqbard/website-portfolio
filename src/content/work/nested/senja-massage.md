@@ -15,6 +15,16 @@ description: Senja Massage and Reflexology is a premium wellness center
 tags:
   - UI UX Design
   - Wordpress Development
+  - Meta Ads
+highlights:
+  - value: "+60%"
+    label: Online reservations
+    detail: First two months after launch
+  - value: "−35%"
+    label: Bounce rate
+  - value: "20%"
+    label: Meta Ads CVR
+    detail: 2023 paid program
 ---
 Company Name: Senja Massage and Reflexology
 
@@ -44,3 +54,15 @@ We crafted a digital experience designed to evoke the same relaxation as their p
 The new website successfully transitioned Senja Massage into a digitally efficient wellness brand. Within the first two months of launch, automated online reservations surged by 60%, drastically reducing the administrative burden on front desk staff and eliminating double-booking errors.
 
 Furthermore, the mobile-first design dropped the website bounce rate by 35%. Customers frequently highlighted the smooth, relaxing booking experience, which perfectly set a calming tone before they even stepped foot into the clinic.
+
+### Paid Media
+
+The engagement later extended into paid social. A 2023 Meta Ads program turned the new website's booking flow into a scalable lead engine:
+
+| Metric | Result |
+|---|---|
+| CTR | 3.9% |
+| Cost per lead | IDR 11,000 |
+| Conversion rate | 20% |
+
+Website and ads ran as one system: campaigns drove traffic into a booking journey that was already optimized to convert, which is why one in five clicks became a lead.

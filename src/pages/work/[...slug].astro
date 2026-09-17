@@ -60,6 +60,23 @@ const tags: string[] = entry.data.tags;
 					/>
 				)
 			}
+			{
+				entry.data.highlights && entry.data.highlights.length > 0 && (
+					<ul class="mt-12 flex list-none flex-wrap gap-4 p-0" aria-label="Key results">
+						{entry.data.highlights.map((highlight) => (
+							<li class="bg-card border-border shadow-float flex min-w-[200px] flex-1 flex-col rounded-card border p-6">
+								<p class="font-display text-primary-text text-3xl font-bold tracking-tight sm:text-4xl">
+									{highlight.value}
+								</p>
+								<p class="text-foreground mt-3 text-sm font-semibold">{highlight.label}</p>
+								{highlight.detail && (
+									<p class="text-muted-foreground mt-1 text-sm leading-relaxed">{highlight.detail}</p>
+								)}
+							</li>
+						))}
+					</ul>
+				)
+			}
 			<div class="prose mx-auto mt-12">
 				<Content />
 			</div>
